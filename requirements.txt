@@ -1,0 +1,15 @@
+pandas
+numpy
+scikit-learn
+lightgbm
+torch
+torch-geometric
+experta
+shap
+spacy
+transformers
+streamlit
+pyvis
+networkx
+matplotlib
+jupyter
