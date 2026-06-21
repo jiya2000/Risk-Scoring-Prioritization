@@ -6,11 +6,20 @@ Strategies:
 1. Weighted fusion with learned or fixed weights
 2. Rank-based fusion (RRF - Reciprocal Rank Fusion) for robust ranking
 3. Isotonic calibration for well-calibrated final probabilities
+4. Adaptive fusion via AdaptiveFusionEngine (topology-conditioned weights)
 """
 
 from sklearn.isotonic import IsotonicRegression
 import numpy as np
 import pandas as pd
+import sys
+import os
+import logging
+
+# Ensure the project root is in the path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+logger = logging.getLogger(__name__)
 
 
 def fuse_scores(tabular_scores, gnn_scores=None, rule_adjustments=None,
@@ -172,6 +181,99 @@ def compute_prediction_confidence(y_score, n_models=3):
     # Distance from decision boundary (0.5) normalized to [0, 1]
     confidence = 2.0 * np.abs(y_score - 0.5)
     return confidence
+
+
+def compute_adaptive_fused_scores(test_df, y_score, G, rule_adjustments=None):
+    """
+    Adaptive fusion pipeline using topology-conditioned weights per transaction.
+
+    Uses AdaptiveFusionEngine to compute per-transaction fused scores with dynamic
+    weights inferred from each account's ego-network topology. Falls back to the
+    existing static-weight fuse_scores() path if AdaptiveFusionEngine fails or if G
+    is None.
+
+    Args:
+        test_df: DataFrame with test transactions. Must include a column that
+                 identifies the sending account ('Sender_account' or 'account_id').
+        y_score: Array-like of ML model predicted probabilities for test_df rows.
+                 Values should be in [0.0, 1.0].
+        G: nx.DiGraph — the directed transaction graph used for topology extraction.
+           Pass None to trigger static-weight fallback for all transactions.
+        rule_adjustments: Optional array-like of integer rule adjustments
+                          (0–100 scale) per transaction. Used to derive s_rules
+                          via sigmoid scaling: 0.25 * (1 - exp(-adj / 50)).
+                          If None, s_rules defaults to 0.0 for all transactions.
+
+    Returns:
+        np.ndarray of fused scores in [0.0, 1.0], one per row in test_df.
+
+    Fallback:
+        If AdaptiveFusionEngine cannot be imported or raises any exception during
+        processing, the function transparently falls back to fuse_scores() with the
+        same tabular scores and rule_adjustments, preserving existing behaviour.
+    """
+    y_score = np.asarray(y_score, dtype=np.float64)
+
+    # Determine the account ID column
+    account_col = None
+    for candidate in ('Sender_account', 'account_id', 'Account_ID'):
+        if candidate in test_df.columns:
+            account_col = candidate
+            break
+
+    # Pre-compute sigmoid-scaled rule scores (s_rules per transaction)
+    if rule_adjustments is not None:
+        adj = np.asarray(rule_adjustments, dtype=np.float64)
+        s_rules_arr = 0.25 * (1.0 - np.exp(-adj / 50.0))
+    else:
+        s_rules_arr = np.zeros(len(y_score), dtype=np.float64)
+
+    # Attempt to use AdaptiveFusionEngine
+    try:
+        from models.adaptive_fusion import AdaptiveFusionEngine
+
+        engine = AdaptiveFusionEngine()
+        fused = np.empty(len(y_score), dtype=np.float64)
+
+        for i in range(len(y_score)):
+            s_ml = float(y_score[i])
+            s_rules = float(s_rules_arr[i])
+
+            # s_graph: use the sender's gf_pagerank if available, else 0.0
+            s_graph = 0.0
+            if 'sender_gf_pagerank' in test_df.columns:
+                s_graph = float(test_df.iloc[i].get('sender_gf_pagerank', 0.0))
+            elif 'gf_pagerank' in test_df.columns:
+                s_graph = float(test_df.iloc[i].get('gf_pagerank', 0.0))
+
+            # Resolve account ID for topology extraction
+            if account_col is not None:
+                account_id = str(test_df.iloc[i][account_col])
+            else:
+                account_id = "__unknown__"
+
+            result = engine.fuse(
+                account_id=account_id,
+                s_ml=s_ml,
+                s_graph=s_graph,
+                s_rules=s_rules,
+                G=G,
+            )
+            fused[i] = result.fused_score
+
+        logger.info(
+            f"compute_adaptive_fused_scores: processed {len(fused)} transactions "
+            f"via AdaptiveFusionEngine."
+        )
+        return np.clip(fused, 0.0, 1.0)
+
+    except Exception as exc:
+        logger.warning(
+            f"AdaptiveFusionEngine failed ({exc}); falling back to static fuse_scores()."
+        )
+        return fuse_scores(y_score, rule_adjustments=rule_adjustments if rule_adjustments is not None else None)
+
+
 
 
 if __name__ == '__main__':

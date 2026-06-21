@@ -10,6 +10,13 @@ Executes the complete pipeline:
 6. Symbolic Typology Assignment
 7. Explainability (SHAP)
 8. NLP Summarization (Track 6)
+
+Degradation Controller Integration (Requirement 3.4, 3.9, 3.10):
+    The PipelineOrchestrator wraps the scoring pipeline with health-monitoring
+    and automatic path selection.  To enable it, import and wire in as shown
+    in the TODO block inside run_pipeline() below.
+
+    from models.pipeline_orchestrator import PipelineOrchestrator
 """
 
 import os
@@ -82,6 +89,24 @@ def run_pipeline():
     # 5. Score Fusion (ML + Symbolic Rules)
     # ─────────────────────────────────────────────────────────────────────
     print("\n[5/7] Applying Score Fusion (ML + Symbolic Rules)...")
+
+    # TODO (Degradation Controller integration — Req 3.4, 3.9, 3.10):
+    # Replace the direct compute_fused_account_scores() call below with the
+    # PipelineOrchestrator so that scoring is automatically routed through the
+    # optimal execution path based on real-time component health:
+    #
+    #   from models.pipeline_orchestrator import PipelineOrchestrator
+    #   orchestrator = PipelineOrchestrator(precision_budget=0.60)
+    #   # Optionally register live health callbacks:
+    #   #   orchestrator.register_health_callback("lightgbm", my_lgbm_health_fn)
+    #   #   orchestrator.register_health_callback("td_pagerank", my_pr_health_fn)
+    #   result = orchestrator.score_accounts(test_df, y_score)
+    #   y_score_fused = result["scores"]
+    #   print(f"  Execution path: {result['path_id']} | fallback={result['fallback']}")
+    #
+    # The orchestrator wraps the DegradationController and selects from 8
+    # pre-evaluated execution paths (full → lgbm_only) ensuring P@50 ≥ 0.60.
+
     y_score_fused = compute_fused_account_scores(test_df, y_score, rule_engine_fn=True)
     metrics_fused = evaluate_model(y_test.values, y_score_fused)
 

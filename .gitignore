@@ -11,3 +11,4 @@ htmlcov/
 data/reports/
 .DS_Store
 .kiro/
+ppt_artifacts/

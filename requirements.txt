@@ -13,3 +13,5 @@ pyvis
 networkx
 matplotlib
 jupyter
+pytest>=7.4.0
+hypothesis>=6.92.0
