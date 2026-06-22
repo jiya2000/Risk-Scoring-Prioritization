@@ -1,0 +1,65 @@
+flowchart TD
+    %% ── Styles ──────────────────────────────────────────
+    classDef startend fill:#27AE60,stroke:#1E8449,color:#fff,font-weight:bold
+    classDef process  fill:#2980B9,stroke:#1A5276,color:#fff,font-weight:bold
+    classDef compute  fill:#E67E22,stroke:#CA6F1E,color:#fff,font-weight:bold
+    classDef decision fill:#F39C12,stroke:#D68910,color:#fff,font-weight:bold
+    classDef penalty  fill:#E74C3C,stroke:#C0392B,color:#fff,font-weight:bold
+    classDef output   fill:#27AE60,stroke:#1E8449,color:#fff,font-weight:bold
+
+    %% ── Nodes ────────────────────────────────────────────
+    S(["▶  START"]):::startend
+
+    L1["📥 Load edge list
+    sender, receiver, amount, date"]:::process
+
+    L2["⏱️ Compute temporal weights
+    w = amount × exp(−λ × EdgeAge)
+    λ = ln2 / half_life_days   |   default: 7 days"]:::compute
+
+    L3["💨 Detect burst-velocity senders
+    burst_mult = 1 + window_cnt / total_cnt
+    if sender sent > 5 txns in last 3 days"]:::compute
+
+    L4["🔗 Build directed graph G
+    edge weight = w_temporal × burst_mult"]:::process
+
+    L5["🔢 Initialise ranks
+    r[v] = 1 / N   for all nodes v"]:::process
+
+    L6["🔄 Power iteration step
+    dangling = d × Σ r[u] / N    for dangling u
+    r_new[v] = (1−d)/N + dangling
+                + d × Σ r[u]·w(u,v) / Σ w(u,k)"]:::compute
+
+    D1{"‖ r_new − r ‖₁ < 1e-6
+    OR  iter ≥ 100 ?"}:::decision
+
+    L7["🔴 Detect SCCs of size > 2
+    intra-weight ratio > 0.80 → apply penalty
+    Collector  →  0.25×
+    Distributor  →  0.50×
+    Balanced  →  0.375×"]:::penalty
+
+    L8["💤 Detect dormant nodes
+    all incident edges older than 30 days
+    cap score ≤ 0.1 × max_score"]:::penalty
+
+    L9["📐 Min-max normalise  →  [0, 1]
+    Return TDPageRankResult"]:::output
+
+    E(["⏹  END"]):::startend
+
+    %% ── Edges ────────────────────────────────────────────
+    S  --> L1
+    L1 --> L2
+    L2 --> L3
+    L3 --> L4
+    L4 --> L5
+    L5 --> L6
+    L6 --> D1
+    D1 -->|YES — converged| L7
+    D1 -->|NO — iterate again| L6
+    L7 --> L8
+    L8 --> L9
+    L9 --> E

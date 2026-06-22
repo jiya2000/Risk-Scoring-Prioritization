@@ -1,0 +1,94 @@
+flowchart TD
+    %% ── Styles ──────────────────────────────────────────
+    classDef data    fill:#AED6F1,stroke:#2980B9,color:#1A2530,font-weight:bold
+    classDef model   fill:#A9DFBF,stroke:#27AE60,color:#1A2530,font-weight:bold
+    classDef compute fill:#F9E79F,stroke:#D4AC0D,color:#1A2530,font-weight:bold
+    classDef gate    fill:#F0B27A,stroke:#CA6F1E,color:#1A2530,font-weight:bold
+    classDef rules   fill:#D7BDE2,stroke:#7D3C98,color:#1A2530,font-weight:bold
+    classDef ctrl    fill:#F1948A,stroke:#C0392B,color:#1A2530,font-weight:bold
+    classDef aggr    fill:#D5DBDB,stroke:#717D7E,color:#1A2530,font-weight:bold
+    classDef hard    fill:#A9DFBF,stroke:#1E8449,color:#145A32,font-weight:bold
+    classDef nlp     fill:#AED6F1,stroke:#1A5276,color:#1A2530,font-weight:bold
+    classDef dash    fill:#FAD7A0,stroke:#CA6F1E,color:#1A2530,font-weight:bold
+
+    %% ── Row A: Data Inputs ───────────────────────────────
+    A1["📂 Input Data
+    transactions.csv | accounts.csv | graph_edges.csv"]:::data
+
+    %% ── Row B: Feature Engineering + LightGBM ──────────
+    B1["⚙️ Feature Engineering
+    40+ features — temporal, KYC, graph"]:::model
+    B2["🤖 LightGBM Classifier
+    → S_ml ∈ [0, 1]"]:::model
+
+    %% ── Row C: Core Scoring Engines ─────────────────────
+    C1["📈 TD-PageRank Engine
+    w = amt × exp(−λ×age) × burst
+    Directional SCC Penalty
+    → S_graph"]:::compute
+    C2["🕸️ Ego-Network Extractor
+    2-hop subgraph
+    → TopologyVector (6 metrics)"]:::compute
+    C3["🔀 TopologyAttentionGate
+    multiplicative gating
+    → w_ml, w_graph, w_rules"]:::gate
+
+    %% ── Row D: Fusion + Rules ────────────────────────────
+    D1["⚖️ Adaptive Fusion Engine
+    fused = w_ml·S_ml + w_graph·S_graph + w_rules·S_rules"]:::gate
+    D2["📜 Symbolic Rule Engine
+    10 FATF Typologies → S_rules"]:::rules
+
+    %% ── Row E: Controller + Aggregation ─────────────────
+    E1["🛡️ Degradation Controller
+    8 Execution Paths | P@50 ≥ 0.60 guaranteed
+    PrecisionDriftDetector + AdaptivePrecisionBudget"]:::ctrl
+    E2["📊 Account Risk Aggregation
+    time-decay + burst + high-risk ratio
+    → Priority Queue: Critical / High / Medium / Low"]:::aggr
+
+    %% ── Row F: Architecture Hardening ───────────────────
+    F1["🔧 Architecture Hardening Layer
+    all flags default = False → fully backward-compatible
+    LearnableSCCPenalty | TopologyEmbeddingNetwork GNN | IsolationDetector
+    DeepTopologyAttentionGate | OnlinePrecisionMonitor | EnhancedConceptDriftDetector | ResourceManager §101"]:::hard
+
+    %% ── Row G: Output Layer ──────────────────────────────
+    G1["💬 NLP Pipeline
+    spaCy NER + SmolLM-135M
+    STR Narrative Generation"]:::nlp
+    G2["🖥️ Streamlit Analyst Dashboard
+    Priority Queue | Case Investigation | Network Viz | SHAP | Export"]:::dash
+
+    %% ── Edges ────────────────────────────────────────────
+    A1 --> B1
+    A1 --> C1
+    B1 -->|features| B2
+    B2 -->|S_ml| C3
+    C1 -->|S_graph| C2
+    C2 -->|topology vector| C3
+    C3 -->|weights| D1
+    C1 -->|S_graph| D1
+    D2 -->|S_rules| D1
+    D1 --> D2
+    D1 --> E1
+    E1 -->|path selection| E2
+    E1 -.->|hardening signals| F1
+    E2 --> G2
+    E1 --> G1
+    G1 --> G2
+
+    subgraph ROW_C ["⚡ Innovation 1 — TD-PageRank + Innovation 2 — Topology Fusion"]
+        C1
+        C2
+        C3
+    end
+
+    subgraph ROW_E ["🔁 Innovation 3 — Adaptive Degradation Control"]
+        E1
+        E2
+    end
+
+    subgraph ROW_F ["🆕 Architecture Hardening Layer (June 2026)"]
+        F1
+    end
