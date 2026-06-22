@@ -326,8 +326,8 @@ class TestProperty15:
 
         # Prior art reference labels
         assert report.fusion_report.prior_art_ref == "US20220405860"
-        assert report.pagerank_report.prior_art_ref == "US20240062041"
-        assert report.degradation_report.prior_art_ref == "US20260038036"
+        assert report.pagerank_report.prior_art_ref == "US11640609B1"
+        assert report.degradation_report.prior_art_ref == "US20210174258"
 
         # Boolean flags are proper booleans
         assert isinstance(report.fusion_report.meets_novelty_threshold, bool)

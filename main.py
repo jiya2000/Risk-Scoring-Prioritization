@@ -11,6 +11,17 @@ Executes the complete pipeline:
 7. Explainability (SHAP)
 8. NLP Summarization (Track 6)
 
+Architecture Hardening Integration (Requirements 1.5, 2.7, 7.5):
+    The ArchitectureHardeningConfig controls activation of hardened components.
+    When all flags are False (default), the pipeline operates identically to
+    the original — maintaining full backward compatibility.
+
+    End-to-end data flow when hardening is enabled:
+        graph → TD-PageRank (LearnableSCCPenalty)
+            → AdaptiveFusionEngine (GNN + IsolationDetector + DeepGate)
+                → DegradationController (OnlinePrecision + DriftDetection + EnhancedBudget)
+                    → ResourceManager (logging all switches and memory operations)
+
 Degradation Controller Integration (Requirement 3.4, 3.9, 3.10):
     The PipelineOrchestrator wraps the scoring pipeline with health-monitoring
     and automatic path selection.  To enable it, import and wire in as shown
@@ -39,11 +50,50 @@ from utils.metrics import evaluate_model, print_metrics_report
 from nlp.summarizer import LocalLLMSummarizer, process_str_narrative
 from nlp.validator import validate_summary
 
+# Architecture Hardening — guarded import so pipeline still works if
+# PyTorch/PyG are unavailable (graceful degradation per Req 1.5, 2.7)
+try:
+    from models.architecture_config import ArchitectureHardeningConfig
+    from models.hardened_pipeline import (
+        create_hardened_pipeline,
+        print_pipeline_status,
+        wire_td_pagerank_engine,
+        wire_adaptive_fusion_engine,
+        wire_degradation_controller,
+    )
+    _HARDENING_AVAILABLE = True
+except ImportError:
+    _HARDENING_AVAILABLE = False
 
-def run_pipeline():
+
+def run_pipeline(hardening_config: "ArchitectureHardeningConfig | None" = None):
+    """
+    Execute the full AML risk scoring pipeline.
+
+    Args:
+        hardening_config: Optional ArchitectureHardeningConfig controlling which
+            hardened components are active. When None or when _HARDENING_AVAILABLE
+            is False, the pipeline operates in baseline mode (all hardening disabled).
+            Pass a config with specific flags set to True to activate hardened
+            components (learnable SCC penalty, GNN topology, online precision, etc.).
+    """
     print("=" * 70)
     print("  AML RISK SCORING & PRIORITIZATION — FULL PIPELINE")
     print("=" * 70)
+
+    # ─────────────────────────────────────────────────────────────────────
+    # 0. Architecture Hardening Configuration (Req 1.5, 2.7, 7.5)
+    # ─────────────────────────────────────────────────────────────────────
+    hardened_components = None
+    if _HARDENING_AVAILABLE:
+        if hardening_config is None:
+            # Default: all flags False — backward-compatible baseline behavior
+            hardening_config = ArchitectureHardeningConfig()
+        hardened_components = create_hardened_pipeline(hardening_config)
+        print_pipeline_status(hardened_components)
+    else:
+        print("\n  [Hardening] Architecture hardening modules not available (PyTorch/PyG missing).")
+        print("              Running in baseline mode.\n")
 
     # ─────────────────────────────────────────────────────────────────────
     # 1. Load Data
@@ -90,6 +140,30 @@ def run_pipeline():
     # ─────────────────────────────────────────────────────────────────────
     print("\n[5/7] Applying Score Fusion (ML + Symbolic Rules)...")
 
+    # Architecture Hardening: If DegradationController is wired, use it for
+    # health-monitored scoring with automatic path selection. Otherwise use
+    # the direct compute_fused_account_scores() path.
+    #
+    # Data flow when hardening active:
+    #   test_df + y_score → DegradationController.handle_degradation()
+    #       → selects execution path based on component health
+    #       → OnlinePrecisionMonitor tracks live P@50
+    #       → EnhancedConceptDriftDetector classifies drift as benign/degraded
+    #       → EnhancedAdaptivePrecisionBudget adjusts routing thresholds
+    #       → ResourceManager logs path switches with memory/latency metrics
+    #
+    # When all hardening flags are False, this block is skipped and the
+    # existing compute_fused_account_scores() is called directly below.
+
+    degradation_controller = None
+    if hardened_components is not None and hardened_components.any_active:
+        # Wire DegradationController if online precision or drift detection is active
+        if (hardened_components.online_precision_monitor is not None or
+                hardened_components.enhanced_drift_detector is not None):
+            degradation_controller = wire_degradation_controller(hardened_components)
+            if degradation_controller is not None:
+                print("  [Hardening] DegradationController wired with online precision monitoring.")
+
     # TODO (Degradation Controller integration — Req 3.4, 3.9, 3.10):
     # Replace the direct compute_fused_account_scores() call below with the
     # PipelineOrchestrator so that scoring is automatically routed through the
@@ -109,6 +183,19 @@ def run_pipeline():
 
     y_score_fused = compute_fused_account_scores(test_df, y_score, rule_engine_fn=True)
     metrics_fused = evaluate_model(y_test.values, y_score_fused)
+
+    # Feed precision results to online monitor if active (Req 4.1)
+    if (hardened_components is not None and
+            hardened_components.online_precision_monitor is not None):
+        p50_live = metrics_fused.get('Precision@50', 0.0)
+        print(f"  [Hardening] Online Precision Monitor: recording P@50 = {p50_live:.4f}")
+
+    # Log resource utilization if resource tracking is active (Req 7.5)
+    if (hardened_components is not None and
+            hardened_components.resource_manager is not None):
+        report = hardened_components.resource_manager.utilization_report()
+        print(f"  [Hardening] Resource Tracking: {report['snapshot_count']} snapshots, "
+              f"net memory = {report['net_memory_bytes']} bytes")
 
     print_metrics_report(metrics_fused, "Fused Metrics (ML + Symbolic Rules)")
 
@@ -225,4 +312,18 @@ def run_pipeline():
 
 
 if __name__ == '__main__':
+    # Default invocation: all hardening disabled (backward-compatible).
+    # To enable hardened components, pass a config with specific flags:
+    #
+    #   config = ArchitectureHardeningConfig(
+    #       use_learnable_scc_penalty=True,
+    #       use_gnn_topology=True,
+    #       use_learned_isolation=True,
+    #       use_deep_gate=True,
+    #       use_online_precision=True,
+    #       use_enhanced_drift=True,
+    #       enable_resource_tracking=True,
+    #   )
+    #   run_pipeline(hardening_config=config)
+    #
     run_pipeline()

@@ -375,3 +375,61 @@ def test_property_14_flap_protection_cooldown(component, n_extra_transitions):
         f"Component should remain COOLDOWN during cooldown window, "
         f"got {status_during_cooldown.value}"
     )
+
+
+# ---------------------------------------------------------------------------
+# Property 17 — Adaptive Budget Monotonicity
+# Validates: Requirements 11.1, 11.2, 11.3, 11.4, 11.5
+# ---------------------------------------------------------------------------
+
+from models.degradation_controller import AdaptivePrecisionBudget
+
+
+@settings(max_examples=100, deadline=5000)
+@given(
+    high_precisions=st.lists(
+        st.floats(min_value=0.71, max_value=0.95, allow_nan=False, allow_infinity=False),
+        min_size=3, max_size=15
+    ),
+)
+def test_property17_adaptive_budget_monotonicity(high_precisions):
+    """
+    **Validates: Requirements 11.1, 11.2, 11.3, 11.4, 11.5**
+
+    Property 17: When recent evaluations consistently exceed base_budget + 0.10,
+    the adaptive budget increases monotonically and stays within [0.55, 0.75].
+
+    Property 2: Adaptive Budget Bounds Invariant
+    Property 3: Adaptive Budget Monotonicity Under High Precision
+    """
+    budget_instance = AdaptivePrecisionBudget(base_budget=0.60, min_budget=0.55, max_budget=0.75)
+
+    budget_values = []
+
+    # Feed each high-precision evaluation result and track the budget
+    for precision in high_precisions:
+        budget_instance.record_eval(precision)
+        current = budget_instance.current_budget()
+        budget_values.append(current)
+
+        # Property 2: Adaptive Budget Bounds Invariant
+        # current_budget() SHALL never exceed 0.75 and never fall below 0.55
+        assert 0.55 <= current <= 0.75, (
+            f"Budget {current} out of bounds [0.55, 0.75] after recording precision={precision}"
+        )
+
+    # Property 3: Adaptive Budget Monotonicity Under High Precision
+    # When mean(recent_evals) exceeds base_budget + 0.10 for N>=3 consecutive rounds,
+    # the budget increases monotonically across those rounds.
+    # Since all input values are in [0.71, 0.95], the mean always exceeds 0.70
+    # once we have at least 1 eval recorded. We check monotonicity from round 3 onward
+    # (N>=3 requirement).
+    for i in range(2, len(budget_values)):
+        # At this point, we have i+1 evaluations recorded (indices 0..i).
+        # All values are > 0.70, so mean(recent_evals) > 0.70 = base_budget + 0.10.
+        # Budget must be monotonically non-decreasing.
+        assert budget_values[i] >= budget_values[i - 1], (
+            f"Budget decreased from {budget_values[i-1]} to {budget_values[i]} at round {i+1}. "
+            f"Monotonicity violated when mean(recent_evals) > base_budget + 0.10. "
+            f"History so far: {high_precisions[:i+1]}"
+        )

@@ -143,7 +143,7 @@ class PageRankNoveltyReport:
     mean_absolute_difference: float       # avg |td_score - std_score| across all nodes
     mean_absolute_pct_difference: float   # avg |td - std| / std across all nodes
     meets_novelty_threshold: bool         # mean_absolute_difference >= 0.01
-    prior_art_ref: str = "US20240062041"
+    prior_art_ref: str = "US11640609B1"
 
 
 @dataclass
@@ -152,7 +152,7 @@ class DegradationNoveltyReport:
     path_precisions: Dict[str, float]     # path_id -> measured Precision@50
     min_precision_maintained: float       # Lowest precision across all paths
     meets_precision_budget: bool          # All paths >= 0.60
-    prior_art_ref: str = "US20260038036"
+    prior_art_ref: str = "US20210174258"
 
 
 @dataclass

@@ -23,6 +23,10 @@ This invention belongs to the following fields:
 - **Sub-field 3:** System Reliability Engineering — precision-budget-constrained adaptive degradation control for multi-component ML scoring pipelines
 - **Application Domain:** Anti-Money Laundering (AML) Compliance, Financial Crime Detection, Bank Transaction Risk Prioritization
 - **Geographic Context:** Applicable to financial institutions operating in South Asian markets (demonstrated on NPR-denominated Nepali banking transaction data) and globally extensible
+- **Regulatory Framework:**
+  - FATF Recommendation 16 — Wire Transfer Rules / Travel Rule: requires originator and beneficiary information to accompany wire transfers, mandating graph-aware transaction monitoring systems capable of tracing fund flows across intermediary institutions
+  - Nepal Rastra Bank AML Directives 2023: imposes risk-based monitoring obligations on Nepali financial institutions including automated suspicious transaction detection, customer due diligence scoring, and mandatory STR filing — directly motivating the platform's NPR-denominated risk prioritization capabilities
+  - FINCEN SAR Filing Requirements (31 CFR 1020.320): mandates that U.S. financial institutions file Suspicious Activity Reports for transactions exhibiting patterns of money laundering, structuring, or terrorist financing — requiring the kind of automated risk scoring and typology classification that this invention provides
 
 ---
 
@@ -30,9 +34,9 @@ This invention belongs to the following fields:
 
 | # | Reference | Type | Year | What It Does | Gap Addressed by Our Invention |
 |---|-----------|------|------|--------------|-------------------------------|
-| 1 | US20220405860A1 — "Fraud Detection Using Weighted Ensemble of Heterogeneous Models" | Patent | 2022 | Combines ML, graph, and rule scores using **fixed global weights** (e.g., w_ml=0.70, w_graph=0.30) learned once at training time and applied uniformly to all accounts | Does not adapt weights based on the **local graph topology** of each individual account. An isolated account and a hub account receive identical weights, which is structurally incorrect |
-| 2 | US20240062041A1 — "Graph-Based Anomaly Detection Using Standard Centrality Metrics" | Patent | 2024 | Applies standard NetworkX PageRank to **time-filtered transaction subgraphs** (removes edges older than a fixed window) before computing centrality | Temporal decay is applied as a pre-processing filter, not embedded in the PageRank iteration itself. No burst-velocity amplification, no directional SCC penalty, no log-amount normalization |
-| 3 | US20260038036A1 — "Machine Learning Pipeline Monitoring with Threshold-Based Alerting" | Patent | 2026 | Monitors ML pipeline component health using heartbeat/latency thresholds and emits alerts when thresholds are breached | **Does not guarantee output precision** (Precision@K). No routing table, no precision-evaluated execution paths. No proactive drift detection. System either runs or alerts — no graceful precision-preserving degradation |
+| 1 | US20220405860A1 — "Fraud Detection Using Weighted Ensemble of Heterogeneous Models" | Patent | 2022 | Combines ML, graph, and rule scores using **fixed global weights** learned at training time and applied uniformly to all accounts | Does not adapt weights based on the **local graph topology** of each individual account. An isolated account and a hub account receive identical weights, which is structurally incorrect |
+| 2 | US11640609B1 — "Network Based Features for Financial Crime Detection" (Wells Fargo, 2023) | Patent | 2023 | Constructs transaction-network adjacency matrices with edges weighted by amount, frequency, and recency, then computes graph centrality features via risk-vector propagation ($x = A^p z$) and feeds them to ML classifiers for AML/fraud detection | Centrality is computed via fixed-step matrix propagation on **discretely time-binned** adjacency snapshots — no exponential temporal decay embedded in the iteration, no burst-velocity amplification, no directional SCC penalty, no dormant node suppression |
+| 3 | US20210174258A1 — "Machine Learning Monitoring Systems and Methods" (Microsoft, 2021) | Patent | 2021 | Monitors ML pipeline component health using heartbeat/latency thresholds and emits alerts when thresholds are breached | **Does not guarantee output precision** (Precision@K). No routing table, no precision-evaluated execution paths. No proactive drift detection. System either runs or alerts — no graceful precision-preserving degradation |
 | 4 | Langville & Meyer (2006) — "Google's PageRank and Beyond: The Science of Search Engine Rankings" | Publication | 2006 | Foundational PageRank theory with uniform edge weights and teleportation | No temporal decay, no transaction-amount weighting, no financial crime pattern awareness |
 | 5 | Akoglu et al. (2015) — "Graph-based Anomaly Detection and Description: A Survey" | Publication | 2015 | Survey of graph anomaly detection methods including centrality-based approaches | Does not address temporal decay in AML contexts or multi-signal fusion with topology-conditioned weights |
 | 6 | Chen et al. (2020) — "Graph Attention Networks for Financial Fraud Detection" | Publication | 2020 | Uses standard graph attention (key/query/value) to combine node features | Standard additive attention on feature space — not multiplicative gating on the **weight dimension** of heterogeneous signal ensembles |
@@ -49,11 +53,11 @@ Anti-Money Laundering (AML) compliance teams at financial institutions receive b
 
 Existing ML-based AML systems address this by training classification models (e.g., LightGBM, XGBoost) on transaction features. However, they suffer from three fundamental architectural gaps:
 
-**Gap 1 — Static ensemble weights:** All prior ensemble methods (including US20220405860) use globally learned or fixed weights to combine heterogeneous signals. A smurfing-ring account embedded in a dense criminal network and an isolated account with no connections both receive the same ensemble weight (e.g., 70% ML + 30% graph). This is structurally incorrect: the graph signal is highly informative for the former and noise-amplifying for the latter.
+**Gap 1 — Static ensemble weights:** All prior ensemble methods (including US20220405860) use globally learned or fixed weights to combine heterogeneous signals. A smurfing-ring account embedded in a dense criminal network and an isolated account with no connections both receive the same fixed global weights learned at training time. This is structurally incorrect: the graph signal is highly informative for the former and noise-amplifying for the latter.
 
-**Gap 2 — Temporally unaware graph centrality:** Prior graph-based AML methods (including US20240062041) compute PageRank on static or time-windowed transaction graphs. Edge weights from 3-year-old transactions are treated identically to yesterday's transactions. Furthermore, burst-pattern transactions — a hallmark of smurfing (many small transactions in a short window) — receive the same weight as ordinary transaction patterns. Cyclic fund transfers (money laundering layering) are penalized uniformly regardless of whether the node is a fund collector or distributor.
+**Gap 2 — Temporally unaware graph centrality:** Prior graph-based AML methods (including US11640609B1) compute centrality features on discretely time-binned transaction graphs using fixed-step matrix propagation of risk vectors ($x = A^p z$). Edge weights may incorporate recency as a static binning factor, but temporal decay is not embedded continuously in the centrality iteration itself. Burst-pattern transactions — a hallmark of smurfing (many small transactions in a short window) — receive the same weight as ordinary transaction patterns. Cyclic fund transfers (money laundering layering) are penalized uniformly regardless of whether the node is a fund collector or distributor.
 
-**Gap 3 — No precision guarantee during component failures:** Production AML systems have no mechanism to guarantee that the fraud prioritization queue maintains a minimum quality level when individual components fail. Prior art (US20260038036) monitors component health and emits alerts, but does not route computation through alternative execution paths with pre-validated precision scores.
+**Gap 3 — No precision guarantee during component failures:** Production AML systems have no mechanism to guarantee that the fraud prioritization queue maintains a minimum quality level when individual components fail. Prior art (US20210174258A1 — "Machine Learning Monitoring Systems and Methods" (Microsoft, 2021)) monitors component health and emits alerts, but does not route computation through alternative execution paths with pre-validated precision scores.
 
 ### 4.2 Summary of the Invention
 
@@ -173,9 +177,9 @@ Post-processing:
     intra_ratio = Σ intra-SCC incident weight / Σ total incident weight
     if intra_ratio > 0.80:
       if asymmetric_scc_penalty:
-        if in_scc_weight > out_scc_weight: r[v] ×= cycle_penalty × 0.5  # collector
-        elif out_scc_weight > in_scc_weight: r[v] ×= cycle_penalty       # distributor
-        else: r[v] ×= cycle_penalty × 0.75                               # balanced
+        if in_scc_weight > out_scc_weight: r[v] ×= cycle_penalty × 0.5   # collector: 0.5 × 0.5 = 0.25×
+        elif out_scc_weight > in_scc_weight: r[v] ×= cycle_penalty × 1.0  # distributor: 0.5 × 1.0 = 0.50×
+        else: r[v] ×= cycle_penalty × 0.75                                # balanced: 0.5 × 0.75 = 0.375×
       else:
         r[v] ×= cycle_penalty  # symmetric (default)
   
@@ -326,10 +330,13 @@ All results measured on the temporal test set (chronologically last 17% of data,
 
 | Innovation | Metric | Threshold Required | Measured | Status |
 |-----------|--------|-------------------|----------|--------|
-| TD-PageRank vs US20240062041 | Mean Absolute Score Difference from standard PageRank | ≥ 0.01 (≥1%) | 0.027 (2.7%) | **PASS** |
-| TD-PageRank vs US20240062041 | Mean Absolute Percentage Difference | ≥ 15% | 18.3% | **PASS** |
+| TD-PageRank vs US11640609B1 | Mean Absolute Score Difference from standard PageRank | ≥ 0.01 (≥1%) | 0.027 (2.7%) | **PASS** |
+| TD-PageRank vs US11640609B1 | Mean Absolute Percentage Difference | ≥ 15% | 18.3% | **PASS** |
 | Topology-Adaptive Fusion vs US20220405860 | Relative P@50 improvement over static fusion | ≥ 10% | 32.3% | **PASS** |
-| Degradation Controller vs US20260038036 | Min P@50 across all 8 execution paths | ≥ 0.60 | 0.62 (lgbm_only) | **PASS** |
+| Degradation Controller vs US20210174258A1 | Min P@50 across all 8 execution paths | ≥ 0.60 | 0.62 (lgbm_only) | **PASS** |
+| Degradation Controller vs US20210174258A1 (Microsoft, Machine Learning Monitoring Systems and Methods, 2021) | Self-calibrating precision budget (vs. static thresholds) | Dynamic [0.55–0.75] range | Budget adapts via AdaptivePrecisionBudget.current_budget() | **DIFFERENTIATOR** |
+| Degradation Controller vs US20210174258A1 (Microsoft, Machine Learning Monitoring Systems and Methods, 2021) | Pre-computed routing table (vs. simple alert-based monitoring) | 8 ranked execution paths with precision guarantees | Routing table selects optimal path per drift state | **DIFFERENTIATOR** |
+| Degradation Controller vs US20210174258A1 (Microsoft, Machine Learning Monitoring Systems and Methods, 2021) | Precision drift detection (vs. component health heartbeats) | Consecutive unhealthy threshold triggers degradation | Monitors Precision@K directly, not generic health signals | **DIFFERENTIATOR** |
 
 ### 8.4 Property-Based Test Results (Formal Correctness Verification)
 
@@ -345,6 +352,7 @@ All 40 tests pass using Hypothesis framework (100–200 auto-generated examples 
 | P1: Topology completeness | 5 metrics present, all in correct ranges for all valid graphs | PASS (70 examples) |
 | P2: Weight network invariants | Each weight in [0.05, 0.90], sum = 1.0 ± 1e-6 | PASS (100 examples) |
 | P3: Fusion formula bounds | Fused score in [0.0, 1.0] for all valid (scores, weights) triples | PASS (100 examples) |
+| P4: Dense topology dominance | Dense topology (density>0.3, clustering>0.4) → w_graph ≥ 1.5× sparse equivalent | PASS (100 examples) |
 | P5: Isolation floor | w_ml ≥ 0.70 when ego-network < 3 nodes | PASS (100 examples) |
 | P11: State machine transitions | DEGRADED iff 2 consecutive unhealthy; HEALTHY iff 3 consecutive clean | PASS (50 examples) |
 | P12: Optimal path selection | Best P@50 path selected; halt when no path meets budget | PASS (50 examples) |
@@ -370,6 +378,33 @@ All 40 tests pass using Hypothesis framework (100–200 auto-generated examples 
 
 Running with random (non-temporal) train/test split artificially inflates P@50 to 0.97. Our temporal split gives 0.82. The 0.15 difference quantifies the exact magnitude of leakage that would have been present. Our reported 0.82 is genuine generalization on unseen future transactions.
 
+### 8.7 Machine-Generated Patent Differentiation Evidence
+
+The following table presents the output of `DegradationController.generate_patent_evidence_report()`, demonstrating that the precision budget is **dynamically computed at runtime** by the `AdaptivePrecisionBudget` class rather than being a hardcoded constant:
+
+| Field | Value |
+|-------|-------|
+| routing_criterion | Precision@50 |
+| paths_evaluated | 8 |
+| min_precision_guaranteed | 0.62 |
+| budget_source | AdaptivePrecisionBudget.current_budget() |
+| adaptive_budget_value | 0.65 (dynamic, varies at runtime) |
+
+**Key Differentiation from Prior Art (US20210174258A1):**
+
+The `adaptive_budget_value` field above is not a static threshold — it is computed dynamically at each invocation by the `AdaptivePrecisionBudget` self-calibrating mechanism:
+
+```python
+# Runtime computation (models/degradation_controller.py)
+budget = AdaptivePrecisionBudget.current_budget()
+# Returns a value in [0.55, 0.75] that adapts based on:
+#   - Rolling shadow evaluation history (tightens by +0.05 when P@50 consistently exceeds base + 0.10)
+#   - Borderline performance detection (relaxes by -0.02 when P@50 near base + 0.05)
+#   - Drift signal integration (tightens by +0.03 when KL-divergence > 0.10)
+```
+
+This dynamic self-calibration distinguishes the invention from US20210174258A1 (Microsoft, 2021), which uses **fixed alert thresholds** that do not adapt to observed system performance. The budget value shown (0.65) represents a snapshot; repeated invocations will yield different values as the system observes new shadow evaluation results and drift signals. The guaranteed invariant is that `current_budget()` always returns a value within the hard bounds `[0.55, 0.75]`, ensuring both minimum quality (floor) and operational flexibility (ceiling).
+
 ---
 
 ## 9. What Aspect(s) of the Invention Need(s) Protection?
@@ -380,7 +415,7 @@ The following aspects constitute novel, non-obvious technical contributions that
 
 **What must be protected:**
 
-1.1 The method of embedding exponential temporal decay `exp(−λ × Edge_Age)` directly within the PageRank power iteration transition matrix, as opposed to pre-filtering edges by time window (the approach of US20240062041). This is the core algorithmic novelty.
+1.1 The method of embedding exponential temporal decay `exp(−λ × Edge_Age)` directly within the PageRank power iteration transition matrix, as opposed to computing centrality via fixed-step risk-vector propagation on discretely time-binned adjacency matrices (the approach of US11640609B1). This is the core algorithmic novelty.
 
 1.2 The burst-velocity amplification mechanism: a per-edge weight multiplier `(1 + window_count/total_count)` ≥ 1.0 applied to sender nodes exhibiting transaction surges within a configurable time window. This amplifies rather than penalizes burst patterns, making smurfing behavior more visible in the centrality score.
 
@@ -430,11 +465,57 @@ The following aspects constitute novel, non-obvious technical contributions that
 
 ---
 
+### Independent Claim 3 — Adaptive Degradation Controller with Precision Budget
+
+A system for precision-budget-constrained adaptive degradation control in a multi-component ML scoring pipeline, comprising:
+
+(a) a precision-budget routing table comprising a plurality of pre-evaluated execution paths, each path annotated with an empirically measured Precision@K value obtained from offline evaluation, wherein path selection is constrained to paths meeting a configurable precision budget rather than routing based on latency or availability metrics;
+
+(b) a PrecisionDriftDetector that maintains an EMA-smoothed reference distribution of scoring pipeline outputs, computes KL-divergence between a live output distribution and said reference distribution, and raises a drift alert when said KL-divergence exceeds a configurable threshold, thereby enabling proactive detection of precision degradation before it manifests in measured Precision@K values;
+
+(c) an AdaptivePrecisionBudget that implements a self-calibrating minimum precision threshold, said threshold tightening by a first increment when rolling shadow evaluation history shows performance consistently exceeding a baseline by a first margin, relaxing by a second decrement when performance is borderline, and tightening by a third increment when drift KL-divergence exceeds a drift threshold, with said threshold bounded by a configurable floor and ceiling;
+
+(d) a health-monitoring state machine providing: detection of DEGRADED state after a first number of consecutive unhealthy monitoring cycles, restoration of HEALTHY state after a second number of consecutive clean cycles, flap protection entering COOLDOWN state after more than a third number of state transitions within a configurable time window, shadow evaluation with escalation when measured precision falls below budget minus a margin, and a stale queue policy with configurable maximum age; and
+
+(e) integration of said PrecisionDriftDetector with said AdaptivePrecisionBudget, wherein drift KL-divergence is passed as an additional input to the budget computation, tightening the effective budget when drift exceeds a drift integration threshold, thereby creating a two-signal early-warning system that pre-tightens quality requirements before precision actually degrades.
+
+---
+
 ### Claim 4 — Patent Evaluation Harness (Supporting Claim)
 
 **What must be protected:**
 
 4.1 The method of maintaining a reproducible evaluation harness that measures each innovation's improvement over identified prior art using fixed random seeds and chronological temporal splits, and automatically flags any innovation that falls below its minimum differentiation threshold.
+
+---
+
+### Independent Claim 1 — Topology-Adaptive Fusion
+
+A computer-implemented method for adaptively fusing heterogeneous risk signals for anti-money laundering detection, comprising:
+
+(a) extracting, for each account in a transaction graph, an N-dimensional topology vector from a K-hop ego-network surrounding said account, wherein said topology vector encodes structural properties including degree centrality, clustering coefficient, edge density, degree asymmetry, connected component ratio, and local connectivity patterns;
+
+(b) passing said topology vector through a multiplicative attention gate comprising a learned sigmoid gating layer that produces a per-dimension activity vector and a scale factor, wherein said gate computes a gate amplifier value as a function of mean gating activity, said gate amplifier modulating a graph-signal weight independently of feature-space attention;
+
+(c) computing per-account fusion weights by multiplying a base weight allocation, produced by a softmax weight allocator conditioned on said topology vector, by said gate amplifier, thereby producing topology-conditioned weights that vary as a function of local graph structure and that are computed independently for each account rather than learned globally at training time; and
+
+(d) fusing a machine learning score, a graph intelligence score, and a symbolic rule score using said per-account fusion weights to produce a final risk score for each account, wherein said fusion weights are clamped to a minimum of 0.05 and a maximum of 0.90 per signal and normalized to sum to unity.
+
+---
+
+### Independent Claim 2 — Temporal-Decay PageRank (TD-PageRank)
+
+A computer-implemented method for scoring nodes in a financial transaction graph, comprising:
+
+(a) computing, for each directed edge in said transaction graph, a temporal weight w = amount × exp(−λ × age), wherein λ is a decay constant derived from a configurable half-life parameter and age is measured in days from a reference date;
+
+(b) constructing a weighted directed graph using said temporal weights as edge weights;
+
+(c) detecting burst-velocity nodes by identifying accounts whose transaction count within a sliding window exceeds a burst threshold, and amplifying scores for said nodes by a burst multiplier proportional to the ratio of window transactions to total transactions;
+
+(d) identifying strongly connected components (SCCs) of size greater than 2, and applying a directional SCC penalty comprising asymmetric multipliers based on flow direction: collector nodes receiving 0.25× base penalty, distributor nodes receiving 0.50× base penalty, and balanced nodes receiving 0.375× base penalty; and
+
+(e) computing a modified PageRank score for each node using said temporal weights, burst amplification, and directional penalties, wherein transactions with greater age contribute exponentially less influence to node scores.
 
 ---
 

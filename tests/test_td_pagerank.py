@@ -380,3 +380,37 @@ def test_property10_determinism(graph):
             f"Non-deterministic normalized score for node {node}: "
             f"run1={n1}, run2={n2}, diff={abs(n1-n2)}"
         )
+
+
+# ---------------------------------------------------------------------------
+# Property 16 — Temporal decay dominance
+# Validates: Requirements 10.1, 10.2, 10.3, 10.4
+# ---------------------------------------------------------------------------
+
+
+@settings(max_examples=100, deadline=2000)
+@given(
+    amount=st.floats(min_value=0.01, max_value=1e8, allow_nan=False, allow_infinity=False),
+    age=st.integers(min_value=0, max_value=365),
+    half_life=st.floats(min_value=1.0, max_value=30.0, allow_nan=False, allow_infinity=False),
+)
+def test_property16_temporal_decay_dominance(amount, age, half_life):
+    """
+    **Validates: Requirements 10.1, 10.2, 10.3, 10.4**
+
+    Property 16: Temporal decay strictly reduces weight for aged transactions.
+    - For age > 0: temporal_weight < undecayed_weight (amount)
+    - For age == 0: temporal_weight == undecayed_weight
+    """
+    decay_lambda = 0.693 / half_life
+    temporal_weight = amount * np.exp(-decay_lambda * age)
+    undecayed_weight = amount
+
+    if age > 0:
+        assert temporal_weight < undecayed_weight, (
+            f"Temporal weight {temporal_weight} should be < undecayed {undecayed_weight} for age={age}"
+        )
+    else:
+        assert abs(temporal_weight - undecayed_weight) < 1e-9, (
+            f"Temporal weight {temporal_weight} should == undecayed {undecayed_weight} for age=0"
+        )

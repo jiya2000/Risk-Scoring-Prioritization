@@ -10,6 +10,11 @@ Features:
 - Activity Momentum & Burst Detection
 - One-Click Investigation Report Export
 - STR Summarization (Track 6)
+
+Architecture Hardening Integration (Requirements 1.5, 2.7, 7.5):
+    The dashboard supports optional architecture hardening via ArchitectureHardeningConfig.
+    When all flags are False (default), the dashboard operates identically to the original.
+    Hardened components are instantiated at startup and made available for scoring.
 """
 
 import streamlit as st
@@ -26,10 +31,29 @@ from models.fusion import compute_fused_account_scores
 from nlp.summarizer import LocalLLMSummarizer, process_str_narrative
 from nlp.validator import validate_summary
 
+# Architecture Hardening — guarded import for graceful degradation (Req 1.5, 2.7)
+try:
+    from models.architecture_config import ArchitectureHardeningConfig
+    from models.hardened_pipeline import create_hardened_pipeline, HardenedPipelineComponents
+    _HARDENING_AVAILABLE = True
+except ImportError:
+    _HARDENING_AVAILABLE = False
+
 # Setup page
 st.set_page_config(page_title="AML Intelligence Dashboard", layout="wide", page_icon="🔍")
 st.title("🔍 AML Risk Scoring & Prioritization Platform")
 st.caption("AI/ML Intelligence Hackathon — Financial Crime Detection Dashboard")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Architecture Hardening — Initialize once at dashboard startup (Req 1.5, 2.7, 7.5)
+# All flags default to False so the dashboard runs identically to baseline.
+# To activate hardened components, modify the config below.
+# ═══════════════════════════════════════════════════════════════════════════
+_hardened_components: "HardenedPipelineComponents | None" = None
+if _HARDENING_AVAILABLE:
+    _hardening_config = ArchitectureHardeningConfig()  # All False = baseline
+    _hardened_components = create_hardened_pipeline(_hardening_config)
 
 
 @st.cache_data

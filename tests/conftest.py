@@ -6,6 +6,9 @@ Provides reusable strategies for:
 - Topology vectors (5 metrics)
 - Health vector sequences (for degradation controller tests)
 - Temporal edge DataFrames with columns [Sender_account, Receiver_account, amount_local_npr, Date]
+- SCCFlowFeatures (for learnable SCC penalty property tests)
+- Ego-networks as PyG Data objects (for topology embedding property tests)
+- Precision estimate sequences (for online precision monitor property tests)
 """
 
 import sys
@@ -17,6 +20,7 @@ from typing import List
 import numpy as np
 import pandas as pd
 import networkx as nx
+import torch
 import pytest
 from hypothesis import strategies as st, settings
 
@@ -24,6 +28,8 @@ from hypothesis import strategies as st, settings
 PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
+
+from models.hardening_data_models import SCCFlowFeatures
 
 
 # ---------------------------------------------------------------------------
@@ -132,6 +138,109 @@ def health_vector_sequence(draw, min_length=2, max_length=20):
         }
         for _ in range(length)
     ]
+
+
+# ---------------------------------------------------------------------------
+# Architecture Hardening: Custom Hypothesis Strategies
+# ---------------------------------------------------------------------------
+
+
+# Strategy for generating random SCCFlowFeatures
+scc_flow_features = st.builds(
+    SCCFlowFeatures,
+    intra_inflow_weight=st.floats(min_value=0.0, max_value=1000.0, allow_nan=False, allow_infinity=False),
+    intra_outflow_weight=st.floats(min_value=0.0, max_value=1000.0, allow_nan=False, allow_infinity=False),
+    weight_ratio=st.floats(min_value=0.0, max_value=1.0, allow_nan=False, allow_infinity=False),
+    scc_size=st.integers(min_value=3, max_value=50),
+    node_degree_in_scc=st.integers(min_value=1, max_value=49),
+)
+
+
+def generate_random_ego_network(num_nodes: int, edge_density: float):
+    """
+    Generate a random ego-network as a PyTorch Geometric Data object.
+
+    Args:
+        num_nodes: Number of nodes in the ego-network (1 to 100).
+        edge_density: Proportion of possible edges present (0.0 to 1.0).
+
+    Returns:
+        torch_geometric.data.Data with:
+        - x: Node feature matrix [num_nodes, 4] with [in_degree, out_degree, amount_sum, edge_count]
+        - edge_index: COO format edge tensor [2, num_edges]
+    """
+    try:
+        import torch_geometric
+        from torch_geometric.data import Data
+    except ImportError:
+        # Fallback: return a minimal Data-like object if PyG not available
+        raise ImportError("torch_geometric is required for ego_networks strategy")
+
+    if num_nodes == 0:
+        # Empty ego-network
+        return Data(
+            x=torch.zeros((0, 4), dtype=torch.float32),
+            edge_index=torch.zeros((2, 0), dtype=torch.long),
+        )
+
+    # Generate directed graph
+    max_edges = num_nodes * (num_nodes - 1)
+    num_edges = int(edge_density * max_edges)
+
+    if num_edges > 0 and num_nodes > 1:
+        # Generate random edge indices (no self-loops)
+        all_possible = []
+        for i in range(num_nodes):
+            for j in range(num_nodes):
+                if i != j:
+                    all_possible.append((i, j))
+
+        # Sample edges
+        rng = np.random.default_rng(seed=num_nodes * 1000 + int(edge_density * 1000))
+        num_edges = min(num_edges, len(all_possible))
+        if num_edges > 0:
+            indices = rng.choice(len(all_possible), size=num_edges, replace=False)
+            edges = [all_possible[idx] for idx in indices]
+            src = [e[0] for e in edges]
+            dst = [e[1] for e in edges]
+            edge_index = torch.tensor([src, dst], dtype=torch.long)
+        else:
+            edge_index = torch.zeros((2, 0), dtype=torch.long)
+    else:
+        edge_index = torch.zeros((2, 0), dtype=torch.long)
+
+    # Compute node features: [in_degree, out_degree, amount_sum, edge_count]
+    in_degrees = torch.zeros(num_nodes, dtype=torch.float32)
+    out_degrees = torch.zeros(num_nodes, dtype=torch.float32)
+
+    if edge_index.shape[1] > 0:
+        for i in range(edge_index.shape[1]):
+            out_degrees[edge_index[0, i]] += 1
+            in_degrees[edge_index[1, i]] += 1
+
+    # amount_sum and edge_count are synthetic features
+    amount_sum = (in_degrees + out_degrees) * 1000.0  # Proxy for total amount
+    edge_count = in_degrees + out_degrees
+
+    x = torch.stack([in_degrees, out_degrees, amount_sum, edge_count], dim=1)
+
+    return Data(x=x, edge_index=edge_index)
+
+
+# Strategy for generating random ego-networks as PyG Data objects
+ego_networks = st.builds(
+    generate_random_ego_network,
+    num_nodes=st.integers(min_value=1, max_value=100),
+    edge_density=st.floats(min_value=0.0, max_value=1.0, allow_nan=False, allow_infinity=False),
+)
+
+
+# Strategy for generating precision estimate sequences
+precision_sequences = st.lists(
+    st.floats(min_value=0.0, max_value=1.0, allow_nan=False, allow_infinity=False),
+    min_size=1,
+    max_size=50,
+)
 
 
 # ---------------------------------------------------------------------------

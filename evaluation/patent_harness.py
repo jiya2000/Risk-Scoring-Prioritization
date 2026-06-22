@@ -3,8 +3,8 @@ Patent Evaluation Harness for AML Innovations.
 
 Measures each innovation's improvement over prior art baselines:
   - Topology-Adaptive Fusion vs. static fusion (prior art: US20220405860)
-  - TD-PageRank vs. standard PageRank     (prior art: US20240062041)
-  - Degradation Controller path precision  (prior art: US20260038036)
+  - TD-PageRank vs. standard PageRank     (prior art: US11640609B1)
+  - Degradation Controller path precision  (prior art: US20210174258)
 
 Produces structured PatentMetricsReport suitable for patent claims.
 """
@@ -25,8 +25,19 @@ from models.data_models import (
     DegradationNoveltyReport,
     PatentMetricsReport,
 )
+from models.degradation_controller import DegradationController
 
 logger = logging.getLogger(__name__)
+
+
+# ---------------------------------------------------------------------------
+# Baseline weight configuration for static fusion (prior art comparison)
+# ---------------------------------------------------------------------------
+
+# Baseline uses fixed global weights without per-account topology adaptation,
+# differentiating the system from US20220405860 without citing specific numeric
+# values from that patent
+static_weights_baseline = {"w_ml": 0.5, "w_graph": 0.5}
 
 
 # ---------------------------------------------------------------------------
@@ -197,7 +208,7 @@ class PatentEvaluationHarness:
             logger.warning(
                 "TD-PageRank novelty threshold NOT met: mean_absolute_difference=%.6f "
                 "(required >= 0.01). Flagging TD-PageRank as insufficiently "
-                "differentiated from prior art US20240062041. "
+                "differentiated from prior art US11640609B1. "
                 "Observed difference: %.6f",
                 mean_absolute_difference,
                 mean_absolute_difference,
@@ -207,7 +218,7 @@ class PatentEvaluationHarness:
             mean_absolute_difference=mean_absolute_difference,
             mean_absolute_pct_difference=mean_absolute_pct_difference,
             meets_novelty_threshold=meets_novelty_threshold,
-            prior_art_ref="US20240062041",
+            prior_art_ref="US11640609B1",
         )
 
         return self._pagerank_report
@@ -246,7 +257,7 @@ class PatentEvaluationHarness:
             }
             logger.warning(
                 "Degradation precision budget NOT met for paths: %s "
-                "(required each >= %.2f). Prior art: US20260038036.",
+                "(required each >= %.2f). Prior art: US20210174258.",
                 failing_paths,
                 precision_budget,
             )
@@ -255,10 +266,28 @@ class PatentEvaluationHarness:
             path_precisions=dict(path_results),
             min_precision_maintained=min_precision_maintained,
             meets_precision_budget=meets_precision_budget,
-            prior_art_ref="US20260038036",
+            prior_art_ref="US20210174258",
         )
 
         return self._degradation_report
+
+    # ------------------------------------------------------------------
+    # Patent Evidence Report (Degradation Controller)
+    # ------------------------------------------------------------------
+
+    def run_patent_evidence_report(self) -> Dict:
+        """
+        Instantiate a DegradationController and call generate_patent_evidence_report()
+        to produce machine-verifiable evidence of the adaptive budget mechanism.
+
+        Returns:
+            Dictionary containing routing_criterion, paths_evaluated,
+            min_precision_guaranteed, budget_source, and adaptive_budget_value.
+        """
+        controller = DegradationController()
+        evidence_report = controller.generate_patent_evidence_report()
+        logger.info("Patent Evidence Report: %s", evidence_report)
+        return evidence_report
 
     # ------------------------------------------------------------------
     # Report generation
@@ -268,6 +297,9 @@ class PatentEvaluationHarness:
         """
         Produce a structured PatentMetricsReport containing all three
         sub-reports plus metadata (dataset size, split date, random seed).
+
+        After assembling the report, also generates and logs the Degradation
+        Controller patent evidence report (Requirement 5.4).
 
         Returns:
             PatentMetricsReport with labeled sections per prior art reference.
@@ -299,6 +331,9 @@ class PatentEvaluationHarness:
             generated_at=datetime.now(),
         )
 
+        # After full evaluation, generate and log patent evidence report (Req 5.4)
+        self.run_patent_evidence_report()
+
         return report
 
     # ------------------------------------------------------------------
@@ -323,12 +358,12 @@ class PatentEvaluationHarness:
             f"  Relative Improvement:           {report.fusion_report.relative_improvement_pct:.2f}%",
             f"  Meets Novelty Threshold (≥10%): {'YES ✓' if report.fusion_report.meets_novelty_threshold else 'NO ✗  [FLAGGED]'}",
             "",
-            "── Prior Art: US20240062041 (Standard Centrality Metrics) ──────────",
+            "── Prior Art: US11640609B1 (Network Centrality for Financial Crime) ──────────",
             f"  Mean Absolute Difference:       {report.pagerank_report.mean_absolute_difference:.6f}",
             f"  Mean Absolute Pct Difference:   {report.pagerank_report.mean_absolute_pct_difference:.4f}",
             f"  Meets Novelty Threshold (≥0.01):{' YES ✓' if report.pagerank_report.meets_novelty_threshold else ' NO ✗  [FLAGGED]'}",
             "",
-            "── Prior Art: US20260038036 (ML Pipeline Monitoring) ───────────────",
+            "── Prior Art: US20210174258 (ML Pipeline Monitoring) ───────────────",
             f"  Min Precision Maintained:       {report.degradation_report.min_precision_maintained:.4f}",
             f"  Meets Precision Budget (≥0.60): {'YES ✓' if report.degradation_report.meets_precision_budget else 'NO ✗  [FLAGGED]'}",
             "  Path-level Precisions:",
