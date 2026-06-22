@@ -1,0 +1,71 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}1.\ Title of the Invention}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}2.\ Field / Area of Invention}{1}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}3.\ Prior Patents and Publications from Literature}{1}{section.3}\protected@file@percent }
+\gdef \LT@i {\LT@entry 
+    {1}{20.5359pt}\LT@entry 
+    {1}{125.81102pt}\LT@entry 
+    {1}{40.45274pt}\LT@entry 
+    {1}{29.07182pt}\LT@entry 
+    {1}{140.0374pt}\LT@entry 
+    {1}{111.58464pt}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}4.\ Summary and Background of the Invention}{3}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}4.1 Background}{3}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}4.2 Summary of Original Three Innovations}{3}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}4.3 Architecture Hardening Innovations (New)}{4}{subsection.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Architecture Hardening Layer: 4 surfaces, each guarded by a config flag defaulting to \texttt  {False} for full backward compatibility.}}{5}{figure.1}\protected@file@percent }
+\newlabel{fig:hardening}{{1}{5}{Architecture Hardening Layer: 4 surfaces, each guarded by a config flag defaulting to \texttt {False} for full backward compatibility}{figure.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}5.\ Objective(s) of Invention}{5}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}6.\ Working Principle of the Invention (In Brief)}{6}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Innovation 1: Temporal-Decay PageRank (TD-PageRank)}{6}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Innovation 2: Topology-Adaptive Fusion with TopologyAttentionGate}{6}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Innovation 3: Adaptive Degradation Controller}{6}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Innovation 4: Architecture Hardening Layer}{6}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}7.\ Description of the Invention in Detail}{7}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}7.1 System Architecture}{7}{subsection.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Full system architecture rendered in seven non-overlapping rows. \textbf  {Row A:} Raw CSV inputs (transactions, accounts, graph edges). \textbf  {Row B:} Feature Engineering (40+ features) and LightGBM Classifier ($S_{ml}$). \textbf  {Row C:} TD-PageRank Engine ($S_{graph}$), Ego-Network Extractor (6-metric TopologyVector), TopologyAttentionGate (multiplicative gating $\to $ fusion weights). \textbf  {Row D:} Adaptive Fusion Engine (fused score) and Symbolic Rule Engine (10 FATF typologies, $S_{rules}$). \textbf  {Row E:} Degradation Controller (8 execution paths, P@50 $\geq $ 0.60) and Account Risk Aggregation $\to $ Priority Queue. \textbf  {Row F (green strip):} Architecture Hardening Layer --- LearnableSCCPenalty, TopologyEmbeddingNetwork (GNN), IsolationDetector, DeepTopologyAttentionGate, OnlinePrecisionMonitor, EnhancedConceptDriftDetector, ResourceManager (\S  101). All hardening flags default to \texttt  {False} (fully backward-compatible). \textbf  {Row G:} NLP Pipeline (spaCy + SmolLM-135M) and Streamlit Analyst Dashboard.}}{7}{figure.2}\protected@file@percent }
+\newlabel{fig:arch}{{2}{7}{Full system architecture rendered in seven non-overlapping rows. \textbf {Row A:} Raw CSV inputs (transactions, accounts, graph edges). \textbf {Row B:} Feature Engineering (40+ features) and LightGBM Classifier ($S_{ml}$). \textbf {Row C:} TD-PageRank Engine ($S_{graph}$), Ego-Network Extractor (6-metric TopologyVector), TopologyAttentionGate (multiplicative gating $\to $ fusion weights). \textbf {Row D:} Adaptive Fusion Engine (fused score) and Symbolic Rule Engine (10 FATF typologies, $S_{rules}$). \textbf {Row E:} Degradation Controller (8 execution paths, P@50 $\geq $ 0.60) and Account Risk Aggregation $\to $ Priority Queue. \textbf {Row F (green strip):} Architecture Hardening Layer --- LearnableSCCPenalty, TopologyEmbeddingNetwork (GNN), IsolationDetector, DeepTopologyAttentionGate, OnlinePrecisionMonitor, EnhancedConceptDriftDetector, ResourceManager (\S 101). All hardening flags default to \texttt {False} (fully backward-compatible). \textbf {Row G:} NLP Pipeline (spaCy + SmolLM-135M) and Streamlit Analyst Dashboard}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}7.2 Innovation 1: TD-PageRank Engine (\texttt  {models/td\_pagerank.py})}{9}{subsection.7.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces TD-PageRank algorithm flowchart: temporal weighting, burst amplification, power iteration, directional SCC penalty, and dormant-node suppression.}}{9}{figure.3}\protected@file@percent }
+\newlabel{fig:tdpr}{{3}{9}{TD-PageRank algorithm flowchart: temporal weighting, burst amplification, power iteration, directional SCC penalty, and dormant-node suppression}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}7.3 Innovation 2: Topology-Adaptive Fusion (\texttt  {models/adaptive\_fusion.py})}{10}{subsection.7.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces TopologyAttentionGate neural architecture: multiplicative gating on the weight dimension (not feature-space attention).}}{10}{figure.4}\protected@file@percent }
+\newlabel{fig:gate}{{4}{10}{TopologyAttentionGate neural architecture: multiplicative gating on the weight dimension (not feature-space attention)}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}7.4 Innovation 3: Adaptive Degradation Controller (\texttt  {models/degradation\_controller.py})}{11}{subsection.7.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Left: state machine (HEALTHY/DEGRADED/COOLDOWN) with transition conditions. Right: 8-path routing table with P@50 values; all paths meet the 0.60 precision budget.}}{11}{figure.5}\protected@file@percent }
+\newlabel{fig:degradation}{{5}{11}{Left: state machine (HEALTHY/DEGRADED/COOLDOWN) with transition conditions. Right: 8-path routing table with P@50 values; all paths meet the 0.60 precision budget}{figure.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}7.5 Architecture Hardening: Learnable SCC Penalty (\texttt  {models/td\_pagerank.py --- LearnableSCCPenalty})}{12}{subsection.7.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.6}7.6 Architecture Hardening: GNN Topology Embedding (\texttt  {models/adaptive\_fusion.py --- TopologyEmbeddingNetwork})}{12}{subsection.7.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.7}7.7 Architecture Hardening: DeepTopologyAttentionGate (\texttt  {models/adaptive\_fusion.py --- DeepTopologyAttentionGate})}{12}{subsection.7.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.8}7.8 Architecture Hardening: Online Precision Recalibration (\texttt  {models/degradation\_controller.py})}{12}{subsection.7.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.9}7.9 Architecture Hardening: Resource Manager (\texttt  {models/resource\_manager.py --- ResourceManager})}{12}{subsection.7.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.10}7.10 Data Flow and System-Level Diagrams}{13}{subsection.7.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces End-to-end data flow: raw CSVs $\to $ feature engineering $\to $ TD-PageRank / LightGBM / symbolic rules $\to $ topology-adaptive fusion $\to $ degradation controller $\to $ account aggregation $\to $ analyst dashboard.}}{13}{figure.6}\protected@file@percent }
+\newlabel{fig:dataflow}{{6}{13}{End-to-end data flow: raw CSVs $\to $ feature engineering $\to $ TD-PageRank / LightGBM / symbolic rules $\to $ topology-adaptive fusion $\to $ degradation controller $\to $ account aggregation $\to $ analyst dashboard}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Conceptual overview of three core innovations: (left) TD-PageRank on transaction network; (centre) per-account fusion weight adaptation for isolated vs hub accounts; (right) degradation controller maintaining P@50 across component failures.}}{13}{figure.7}\protected@file@percent }
+\newlabel{fig:conceptual}{{7}{13}{Conceptual overview of three core innovations: (left) TD-PageRank on transaction network; (centre) per-account fusion weight adaptation for isolated vs hub accounts; (right) degradation controller maintaining P@50 across component failures}{figure.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}8.\ Experimental Validation Results}{14}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}8.1 System Performance on Temporal Test Set}{14}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}8.2 Ablation Study}{14}{subsection.8.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Incremental component value: each layer of the system adds measurable P@50 improvement.}}{14}{figure.8}\protected@file@percent }
+\newlabel{fig:ablation}{{8}{14}{Incremental component value: each layer of the system adds measurable P@50 improvement}{figure.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}8.3 Prior-Art Differentiation Thresholds}{14}{subsection.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}8.4 Precision Routing Table Validation}{15}{subsection.8.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces All 8 execution paths meet the P@50 $\geq $ 0.60 precision budget guarantee.}}{15}{figure.9}\protected@file@percent }
+\newlabel{fig:routing}{{9}{15}{All 8 execution paths meet the P@50 $\geq $ 0.60 precision budget guarantee}{figure.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}8.5 Property-Based Test Results (119 Tests, All PASS)}{15}{subsection.8.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces 27 formal correctness properties covering all innovations (original 15 + 12 architecture-hardening properties), verified by Hypothesis with 50--100 examples each. All 119 pytest tests pass.}}{15}{figure.10}\protected@file@percent }
+\newlabel{fig:props}{{10}{15}{27 formal correctness properties covering all innovations (original 15 + 12 architecture-hardening properties), verified by Hypothesis with 50--100 examples each. All 119 pytest tests pass}{figure.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}8.6 Architecture Hardening Property Summary}{16}{subsection.8.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.7}8.7 Leakage Verification}{16}{subsection.8.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}9.\ What Aspect(s) of the Invention Need(s) Protection?}{16}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Claim 1 --- Temporal-Decay PageRank with Burst-Velocity Amplification and Directional SCC Penalty}{16}{subsection.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Claim 2 --- Topology-Conditioned Multiplicative Attention Gate for Heterogeneous Signal Fusion}{17}{subsection.9.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Claim 3 --- Precision-Budget-Constrained Adaptive Degradation Controller}{17}{subsection.9.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Claim 4 --- Patent Evaluation Harness (Supporting)}{17}{subsection.9.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.5}Claim 5 --- \S  101 System-Level Resource Management Anchoring (\texttt  {ResourceManager})}{18}{subsection.9.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}10.\ Technology Readiness Level (TRL)}{18}{section.10}\protected@file@percent }
+\gdef \@abspage@last{19}

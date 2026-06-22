@@ -1,0 +1,1554 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.17)  22 JUN 2026 17:55
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./IDF_B_Invention_Disclosure.tex
+(IDF_B_Invention_Disclosure.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count283
+\Gm@cntv=\count284
+\c@Gm@tempcnt=\count285
+\Gm@bindingoffset=\dimen149
+\Gm@wd@mp=\dimen150
+\Gm@odd@mp=\dimen151
+\Gm@even@mp=\dimen152
+\Gm@layoutwidth=\dimen153
+\Gm@layoutheight=\dimen154
+\Gm@layouthoffset=\dimen155
+\Gm@layoutvoffset=\dimen156
+\Gm@dimlist=\toks20
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
+\LTleft=\skip51
+\LTright=\skip52
+\LTpre=\skip53
+\LTpost=\skip54
+\LTchunksize=\count286
+\LTcapwidth=\dimen157
+\LT@head=\box53
+\LT@firsthead=\box54
+\LT@foot=\box55
+\LT@lastfoot=\box56
+\LT@gbox=\box57
+\LT@cols=\count287
+\LT@rows=\count288
+\c@LT@tables=\count289
+\c@LT@chunks=\count290
+\LT@p@ftn=\toks21
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen158
+\lightrulewidth=\dimen159
+\cmidrulewidth=\dimen160
+\belowrulesep=\dimen161
+\belowbottomsep=\dimen162
+\aboverulesep=\dimen163
+\abovetopsep=\dimen164
+\cmidrulesep=\dimen165
+\cmidrulekern=\dimen166
+\defaultaddspace=\dimen167
+\@cmidla=\count291
+\@cmidlb=\count292
+\@aboverulesep=\dimen168
+\@belowrulesep=\dimen169
+\@thisruleclass=\count293
+\@lastruleclass=\count294
+\@thisrulewidth=\dimen170
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen171
+\ar@mcellbox=\box58
+\extrarowheight=\dimen172
+\NC@list=\toks22
+\extratabsurround=\skip55
+\backup@length=\skip56
+\ar@cellbox=\box59
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen173
+\TX@old@table=\dimen174
+\TX@old@col=\dimen175
+\TX@target=\dimen176
+\TX@delta=\dimen177
+\TX@cols=\count295
+\TX@ftn=\toks23
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip57
+\multirow@cntb=\count296
+\multirow@dima=\skip58
+\bigstrutjot=\dimen178
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip59
+\enit@outerparindent=\dimen179
+\enit@toks=\toks24
+\enit@inbox=\box60
+\enit@count@id=\count297
+\enitdp@description=\count298
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip60
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks25
+\ex@=\dimen180
+))
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen181
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count299
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count300
+\leftroot@=\count301
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count302
+\DOTSCASE@=\count303
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box61
+\strutbox@=\box62
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen182
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count304
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count305
+\dotsspace@=\muskip17
+\c@parentequation=\count306
+\dspbrk@lvl=\count307
+\tag@help=\toks26
+\row@=\count308
+\column@=\count309
+\maxfields@=\count310
+\andhelp@=\toks27
+\eqnshift@=\dimen183
+\alignsep@=\dimen184
+\tagshift@=\dimen185
+\tagwidth@=\dimen186
+\totwidth@=\dimen187
+\lineht@=\dimen188
+\@envbody=\toks28
+\multlinegap=\skip61
+\multlinetaggap=\skip62
+\mathdisplay@stack=\toks29
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.st
+y
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen189
+\Gin@req@width=\dimen190
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count311
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count312
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
+ty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen191
+\Hy@linkcounter=\count313
+\Hy@pagecounter=\count314
+ (C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count315
+ (C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count316
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen192
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count317
+\Field@Width=\dimen193
+\Fld@charsize=\dimen194
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count318
+\c@Item=\count319
+\c@Hfootnote=\count320
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+\Fld@listcount=\count321
+\c@bookmark@seq@number=\count322
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+)
+\Hy@SectionHShift=\skip63
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count323
+\lst@gtempboxa=\box63
+\lst@token=\toks30
+\lst@length=\count324
+\lst@currlwidth=\dimen195
+\lst@column=\count325
+\lst@pos=\count326
+\lst@lostspace=\dimen196
+\lst@width=\dimen197
+\lst@newlines=\count327
+\lst@lineno=\count328
+\lst@maxwidth=\dimen198
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count329
+\lst@skipnumbers=\count330
+\lst@framebox=\box64
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box65
+\beforetitleunit=\skip64
+\aftertitleunit=\skip65
+\ttl@plus=\dimen199
+\ttl@minus=\dimen256
+\ttl@toksa=\toks31
+\titlewidth=\dimen257
+\titlewidthlast=\dimen258
+\titlewidthfirst=\dimen259
+) (C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip66
+\f@nch@offset@elh=\skip67
+\f@nch@offset@erh=\skip68
+\f@nch@offset@olh=\skip69
+\f@nch@offset@orh=\skip70
+\f@nch@offset@elf=\skip71
+\f@nch@offset@erf=\skip72
+\f@nch@offset@olf=\skip73
+\f@nch@offset@orf=\skip74
+\f@nch@height=\skip75
+\f@nch@footalignment=\skip76
+\f@nch@widthL=\skip77
+\f@nch@widthC=\skip78
+\f@nch@widthR=\skip79
+\@temptokenb=\toks32
+) (C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count331
+\float@exts=\toks33
+\float@box=\box66
+\@float@everytoks=\toks34
+\@floatcapt=\box67
+)
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 39
+.
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count332
+) (IDF_B_Invention_Disclosure.aux)
+\openout1 = `IDF_B_Invention_Disclosure.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=15.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count333
+\scratchdimen=\dimen260
+\scratchbox=\box68
+\nofMPsegments=\count334
+\nofMParguments=\count335
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count336
+\MPscratchDim=\dimen261
+\MPnumerator=\count337
+\makeMPintoPDFobject=\count338
+\everyMPtoPDFconversion=\toks36
+)
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package hyperref Info: Link coloring OFF on input line 39.
+ (IDF_B_Invention_Disclosure.out) (IDF_B_Invention_Disclosure.out)
+\@outlinefile=\write3
+\openout3 = `IDF_B_Invention_Disclosure.out'.
+
+\c@lstlisting=\count339
+
+Overfull \hbox (1.69943pt too wide) in paragraph at lines 59--64
+\T1/lmr/bx/n/12 PageRank, Topol-o-gy-At-ten-tion-Gate Fu-sion, Adap-tive Precis
+ion-Budget Degra-
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
+9.
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Overfull \hbox (1.2561pt too wide) in paragraph at lines 94--94
+[]|\T1/lmr/m/n/12 #| 
+ []
+
+
+Overfull \hbox (6.42332pt too wide) in paragraph at lines 94--94
+[]|\T1/lmr/m/n/12 Year| 
+ []
+
+
+Overfull \hbox (14.52563pt too wide) in alignment at lines 92--96
+ [] [] [] [] [] [] 
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 97--97
+\T1/lmr/m/n/12 Fraud De-tec-tion Us-
+ []
+
+
+Overfull \hbox (5.65259pt too wide) in paragraph at lines 97--97
+[]|\T1/lmr/m/n/12 Patent| 
+ []
+
+
+Overfull \hbox (6.42812pt too wide) in paragraph at lines 97--97
+[]|\T1/lmr/m/n/12 2022| 
+ []
+
+
+Underfull \hbox (badness 7047) in paragraph at lines 98--98
+[]|\T1/lmr/m/n/12 Combines ML, graph,
+ []
+
+
+Underfull \hbox (badness 4416) in paragraph at lines 98--98
+\T1/lmr/m/n/12 and rule scores us-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
+[]|\T1/lmr/m/n/12 Does not adapt
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
+\T1/lmr/m/n/12 weights per ac-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
+\T1/lmr/m/n/12 count's lo-cal
+ []
+
+
+Underfull \hbox (badness 2671) in paragraph at lines 99--100
+\T1/lmr/m/n/12 topol-ogy; iso-lated
+ []
+
+
+Underfull \hbox (badness 1394) in paragraph at lines 99--100
+\T1/lmr/m/n/12 and hub ac-counts
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
+\T1/lmr/m/n/12 re-ceive iden-ti-cal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--101
+[]|\T1/lmr/m/n/12 US11640609B1 ---
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--101
+\T1/lmr/m/n/12 Network-Based Fea-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--101
+\T1/lmr/m/n/12 tures for Fi-nan-cial
+ []
+
+
+Overfull \hbox (5.65259pt too wide) in paragraph at lines 101--101
+[]|\T1/lmr/m/n/12 Patent| 
+ []
+
+
+Overfull \hbox (6.42812pt too wide) in paragraph at lines 101--101
+[]|\T1/lmr/m/n/12 2023| 
+ []
+
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+02.
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+02.
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+102.
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+102.
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 102.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 102.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 102.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 102
+.
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 102
+.
+
+(C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 1436) in paragraph at lines 102--102
+[]|\T1/lmr/m/n/12 Risk-vector prop-a-ga-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--102
+\T1/lmr/m/n/12 time-binned ad-ja-cency
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
+[]|\T1/lmr/m/n/12 No ex-po-nen-tial
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
+\T1/lmr/m/n/12 tem-po-ral de-cay
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
+\T1/lmr/m/n/12 in it-er-a-tion; no
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
+\T1/lmr/m/n/12 burst-velocity
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
+\T1/lmr/m/n/12 am-pli-fi-ca-tion; no
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
+\T1/lmr/m/n/12 di-rec-tional SCC
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--105
+[]|\T1/lmr/m/n/12 US20210174258A1
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--105
+\T1/lmr/m/n/12 Mon-i-tor-ing Sys-tems
+ []
+
+
+Overfull \hbox (5.65259pt too wide) in paragraph at lines 105--105
+[]|\T1/lmr/m/n/12 Patent| 
+ []
+
+
+Overfull \hbox (6.42812pt too wide) in paragraph at lines 105--105
+[]|\T1/lmr/m/n/12 2021| 
+ []
+
+
+Underfull \hbox (badness 6641) in paragraph at lines 106--106
+[]|\T1/lmr/m/n/12 Monitors ML pipeline
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--106
+\T1/lmr/m/n/12 health via heart-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+[]|\T1/lmr/m/n/12 Does not guar-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+\T1/lmr/m/n/12 an-tee out-put
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+\T1/lmr/m/n/12 Pre-ci-sion@K; no
+ []
+
+
+Underfull \hbox (badness 2050) in paragraph at lines 107--108
+\T1/lmr/m/n/12 rout-ing ta-ble; no
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+\T1/lmr/m/n/12 self-calibrating
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--109
+[]|\T1/lmr/m/n/12 US10713722B2 ---
+ []
+
+
+Underfull \hbox (badness 7433) in paragraph at lines 109--109
+\T1/lmr/m/n/12 Graph Neu-ral Net-
+ []
+
+
+Underfull \hbox (badness 5622) in paragraph at lines 109--109
+\T1/lmr/m/n/12 works for Fi-nan-cial
+ []
+
+
+Overfull \hbox (5.65259pt too wide) in paragraph at lines 109--109
+[]|\T1/lmr/m/n/12 Patent| 
+ []
+
+
+Overfull \hbox (6.42812pt too wide) in paragraph at lines 109--109
+[]|\T1/lmr/m/n/12 2020| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
+\T1/lmr/m/n/12 network topol-ogy
+ []
+
+
+Underfull \hbox (badness 1917) in paragraph at lines 113--113
+[]|\T1/lmr/m/n/12 Alice Corp. v. CLS
+ []
+
+
+Underfull \hbox (badness 1242) in paragraph at lines 113--113
+\T1/lmr/m/n/12 Bank, 573 U.S. 208
+ []
+
+
+Overfull \hbox (6.42812pt too wide) in paragraph at lines 113--113
+[]|\T1/lmr/m/n/12 2014| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
+[]|\T1/lmr/m/n/12 Abstract ideas not
+ []
+
+
+Underfull \hbox (badness 4229) in paragraph at lines 114--114
+\T1/lmr/m/n/12 patentable un-der Ÿ101
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
+\T1/lmr/m/n/12 with-out ``some-thing
+ []
+
+
+Underfull \hbox (badness 1675) in paragraph at lines 115--116
+[]|\T1/lmr/m/n/12 Addressed by our
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+\T1/lmr/m/n/12 Re-source-M-an-ager:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+\T1/lmr/m/n/12 con-crete mem-ory
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+\T1/lmr/m/n/12 buffer al-lo-ca-tion,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+\T1/lmr/m/n/12 execution-path
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+\T1/lmr/m/n/12 rout-ing, atomic
+ []
+
+
+Overfull \hbox (5.65259pt too wide) in paragraph at lines 117--117
+[]|\T1/lmr/m/n/12 Patent| 
+ []
+
+
+Overfull \hbox (6.42812pt too wide) in paragraph at lines 117--117
+[]|\T1/lmr/m/n/12 2023| 
+ []
+
+
+Underfull \hbox (badness 3735) in paragraph at lines 119--120
+[]|\T1/lmr/m/n/12 No adap-tive pre-
+ []
+
+
+Underfull \hbox (badness 1484) in paragraph at lines 119--120
+\T1/lmr/m/n/12 ci-sion bud-get; no
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
+\T1/lmr/m/n/12 per-path pre-ci-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
+\T1/lmr/m/n/12 no on-line Pre-ci-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--121
+[]|\T1/lmr/m/n/12 Langville & Meyer
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--121
+\T1/lmr/m/n/12 (2006) --- Google's
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--121
+\T1/lmr/m/n/12 PageR-ank and Be-
+ []
+
+
+Overfull \hbox (6.42812pt too wide) in paragraph at lines 121--121
+[]|\T1/lmr/m/n/12 2006| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--122
+[]|\T1/lmr/m/n/12 Foundational PageR-
+ []
+
+
+Overfull \hbox (6.42812pt too wide) in paragraph at lines 125--125
+[]|\T1/lmr/m/n/12 2020| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+[]|\T1/lmr/m/n/12 Not mul-ti-plica-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+\T1/lmr/m/it/12 weight di-men-sion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+\T1/lmr/m/n/12 of het-ero-ge-neous
+ []
+
+
+Overfull \hbox (6.42812pt too wide) in paragraph at lines 129--129
+[]|\T1/lmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (5.49742pt too wide) in paragraph at lines 130--130
+[]|\T1/lmr/m/n/12 HEALTHY/DEGRADED
+ []
+
+
+Underfull \hbox (badness 1622) in paragraph at lines 131--132
+[]|\T1/lmr/m/n/12 Routing met-ric is
+ []
+
+
+Underfull \hbox (badness 3138) in paragraph at lines 131--132
+\T1/lmr/m/n/12 la-tency, not Pre-
+ []
+
+
+Underfull \hbox (badness 1127) in paragraph at lines 131--132
+\T1/lmr/m/n/12 ci-sion@K; no pre-
+ []
+
+
+Overfull \hbox (3.21407pt too wide) in paragraph at lines 133--133
+[]|\T1/lmr/m/n/12 10| 
+ []
+
+
+Overfull \hbox (18.54784pt too wide) in paragraph at lines 133--133
+[]|\T1/lmr/m/n/12 Standard| 
+ []
+
+
+Overfull \hbox (6.42812pt too wide) in paragraph at lines 133--133
+[]|\T1/lmr/m/n/12 2022| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--134
+[]|\T1/lmr/m/n/12 Defines 10+ money-
+ []
+
+
+Underfull \hbox (badness 5345) in paragraph at lines 135--136
+[]|\T1/lmr/m/n/12 Does not spec-ify
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
+\T1/lmr/m/n/12 com-pu-ta-tional
+ []
+
+
+Overfull \hbox (14.52563pt too wide) in alignment at lines 96--137
+ [] [] [] [] [] [] 
+ []
+
+[1{C:/Users/abhis/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ab
+his/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}
+
+{C:/Users/abhis/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+ignored error: Infinite glue shrinkage found in box being split [2{C:/Users/abh
+is/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/abh
+is/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
+Overfull \hbox (43.23608pt too wide) in paragraph at lines 149--152
+[]\T1/lmr/bx/n/12 Gap 1 --- Static en-sem-ble weights: \T1/lmr/m/n/12 All prior
+ en-sem-ble meth-ods (in-clud-ing US20220405860)
+ []
+
+
+Overfull \hbox (9.37305pt too wide) in paragraph at lines 157--160
+\T1/lmr/m/n/12 mech-a-nism to guar-an-tee queue qual-ity when com-po-nents fail
+. Prior art (US20210174258A1)
+ []
+
+[3{C:/Users/abhis/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.en
+c}]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+79.
+ (C:\Users\abhis\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Overfull \hbox (43.14043pt too wide) in paragraph at lines 177--181
+\T1/lmtt/m/n/12 PrecisionDriftDetector \T1/lmr/m/n/12 (EMA-KL di-ver-gence) and
+ self-calibrating \T1/lmtt/m/n/12 AdaptivePrecisionBudget
+ []
+
+
+Overfull \hbox (105.9892pt too wide) in paragraph at lines 184--186
+\T1/lmr/m/n/12 The architecture-hardening layer adds four ad-di-tional sur-face
+s, all guarded by \T1/lmtt/m/n/12 ArchitectureHardeningConfig
+ []
+
+
+Overfull \hbox (1.82582pt too wide) in paragraph at lines 187--191
+\T1/lmtt/m/n/12 train_penalty() \T1/lmr/m/n/12 and up-dated atom-i-cally via \T
+1/lmtt/m/n/12 ResourceManager.atomic_model_swap()\T1/lmr/m/n/12 . 
+ []
+
+
+Overfull \hbox (43.61215pt too wide) in paragraph at lines 198--203
+\T1/lmr/m/n/12 clas-sify: \T1/lmr/m/it/12 no_drift \T1/lmr/m/n/12 / \T1/lmr/m/i
+t/12 be-nign_shift \T1/lmr/m/n/12 / \T1/lmr/m/it/12 pre-ci-sion_degraded\T1/lmr
+/m/n/12 ), and \T1/lmtt/m/n/12 EnhancedAdaptivePrecisionBudget
+ []
+
+
+Overfull \hbox (31.08418pt too wide) in paragraph at lines 204--209
+[]\T1/lmr/bx/n/12 Hardening Sur-face 4 --- Ÿ101 Re-source Man-age-ment An-chor-
+ing: \T1/lmtt/m/n/12 ResourceManager
+ []
+
+<artifacts/fig07_architecture_hardening.png, id=184, 1004.553pt x 642.7212pt>
+File: artifacts/fig07_architecture_hardening.png Graphic file (type png)
+<use artifacts/fig07_architecture_hardening.png>
+Package pdftex.def Info: artifacts/fig07_architecture_hardening.png  used on in
+put line 212.
+(pdftex.def)             Requested size: 443.9066pt x 284.01428pt.
+[4] [5
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.249   \item A
+               nchor all patent claims to concrete system-level resource man...
+ <./artifacts/fig07_architecture_hardening.png>]
+Overfull \hbox (106.69644pt too wide) in paragraph at lines 283--287
+\T1/lmr/m/n/12 Every 10 s: 3-metric HealthVec-tor per com-po-nent $\OMS/lmsy/m/
+n/12 !$ \T1/lmr/m/n/12 state ma-chine (HEALTHY/DEGRADED/COOLDOWN)
+ []
+
+
+Overfull \hbox (2.44427pt too wide) in paragraph at lines 283--287
+\T1/lmr/m/n/12 AND $\OML/lmm/m/it/12 P\OT1/lmr/m/n/12 @50 \OMS/lmsy/m/n/12 ^^U 
+[]$\T1/lmr/m/n/12 . \T1/lmtt/m/n/12 PrecisionDriftDetector \T1/lmr/m/n/12 (EMA-
+smoothed
+ []
+
+
+Overfull \hbox (8.34737pt too wide) in paragraph at lines 290--300
+\T1/lmr/m/n/12 + \T1/lmtt/m/n/12 ResourceManager.atomic_model_swap()\T1/lmr/m/n
+/12 ; \T1/lmtt/m/n/12 TopologyEmbeddingNetwork \T1/lmr/m/n/12 (2$\OMS/lmsy/m/n/
+12 ^^B$\T1/lmr/m/n/12 GCNConv,
+ []
+
+
+Overfull \hbox (27.4201pt too wide) in paragraph at lines 290--300
+\T1/lmr/m/n/12 dow) + \T1/lmtt/m/n/12 EnhancedConceptDriftDetector \T1/lmr/m/n/
+12 + \T1/lmtt/m/n/12 EnhancedAdaptivePrecisionBudget \T1/lmr/m/n/12 (0.7$\OMS/l
+msy/m/n/12 ^^B$\T1/lmr/m/n/12 online
+ []
+
+<artifacts/fig01_system_architecture.png, id=204, 1027.1976pt x 943.8462pt>
+File: artifacts/fig01_system_architecture.png Graphic file (type png)
+<use artifacts/fig01_system_architecture.png>
+Package pdftex.def Info: artifacts/fig01_system_architecture.png  used on input
+ line 309.
+(pdftex.def)             Requested size: 443.9066pt x 407.87663pt.
+[6]
+Overfull \hbox (25.29031pt too wide) in paragraph at lines 327--336
+\T1/lmr/m/n/12 from the core pipeline, ac-ti-vated only when the cor-re-spond-i
+ng \T1/lmtt/m/n/12 ArchitectureHardeningConfig
+ []
+
+[7
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.336 
+       <./artifacts/fig01_system_architecture.png>]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 337.
+<artifacts/fig02_tdpagerank_flowchart.png, id=228, 570.933pt x 1004.553pt>
+File: artifacts/fig02_tdpagerank_flowchart.png Graphic file (type png)
+<use artifacts/fig02_tdpagerank_flowchart.png>
+Package pdftex.def Info: artifacts/fig02_tdpagerank_flowchart.png  used on inpu
+t line 341.
+(pdftex.def)             Requested size: 326.13744pt x 573.85808pt.
+ [8]
+Overfull \hbox (142.93405pt too wide) in paragraph at lines 347--350
+\T1/lmtt/m/n/12 cycle_penalty=0.5\T1/lmr/m/n/12 , \T1/lmtt/m/n/12 max_iter=100\
+T1/lmr/m/n/12 , \T1/lmtt/m/n/12 tol=1e-6\T1/lmr/m/n/12 , \T1/lmtt/m/n/12 asymme
+tric_scc_penalty=False\T1/lmr/m/n/12 , \T1/lmtt/m/n/12 use_learnable_penalty=Fa
+lse\T1/lmr/m/n/12 . 
+ []
+
+[9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.352 \begin{lstlisting}
+                         <./artifacts/fig02_tdpagerank_flowchart.png>]
+<artifacts/fig03_topology_attention_gate.png, id=240, 890.3664pt x 498.1812pt>
+File: artifacts/fig03_topology_attention_gate.png Graphic file (type png)
+<use artifacts/fig03_topology_attention_gate.png>
+Package pdftex.def Info: artifacts/fig03_topology_attention_gate.png  used on i
+nput line 376.
+(pdftex.def)             Requested size: 416.72963pt x 233.17218pt.
+
+Overfull \hbox (43.51917pt too wide) in paragraph at lines 382--386
+\T1/lmr/bx/n/12 EgoNetworkExtractor \T1/lmr/m/n/12 com-putes a 6-dimensional \T
+1/lmtt/m/n/12 TopologyVector\T1/lmr/m/n/12 : edge den-sity $\OMS/lmsy/m/n/12 j\
+OML/lmm/m/it/12 E\OMS/lmsy/m/n/12 j\OML/lmm/m/it/12 =\OT1/lmr/m/n/12 (\OMS/lmsy
+/m/n/12 j\OML/lmm/m/it/12 V\OMS/lmsy/m/n/12 j\OT1/lmr/m/n/12 (\OMS/lmsy/m/n/12 
+j\OML/lmm/m/it/12 V\OMS/lmsy/m/n/12 j ^^@
+ []
+
+
+Overfull \hbox (83.5359pt too wide) in paragraph at lines 382--386
+\OT1/lmr/m/n/12 1))$\T1/lmr/m/n/12 ; graph di-am-e-ter; av-er-age clus-ter-ing 
+co-ef-fi-cient; de-gree asym-me-try $[]\OT1/lmr/m/n/12 ([])\OML/lmm/m/it/12 = [
+]\OT1/lmr/m/n/12 ([]([])\OML/lmm/m/it/12 ; ^^O\OT1/lmr/m/n/12 )$\T1/lmr/m/n/12 
+;
+ []
+
+
+Overfull \hbox (34.51991pt too wide) in paragraph at lines 387--392
+[]\T1/lmr/bx/n/12 TopologyAttentionGate: \T1/lmr/m/n/12 Layer 1: Linear(5$\OMS/
+lmsy/m/n/12 !$\T1/lmr/m/n/12 5) + Sig-moid (gate); Layer 2: Linear(5$\OMS/lmsy/
+m/n/12 !$\T1/lmr/m/n/12 32)
+ []
+
+[10
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.393 \textbf{Fallback:}
+                         Static weights $(0.70, 0.15, 0.15)$ on 6 conditions: <
+./artifacts/fig03_topology_attention_gate.png>]
+Overfull \hbox (55.97263pt too wide) in paragraph at lines 399--399
+|[]\T1/lmr/bx/n/12 7.4 In-no-va-tion 3: Adap-tive Degra-da-tion Con-troller (\T
+1/lmtt/b/n/12 models/degradation_controller.py\T1/lmr/bx/n/12 )| 
+ []
+
+<artifacts/fig04_degradation_state_machine.png, id=265, 1004.553pt x 498.1812pt
+>
+File: artifacts/fig04_degradation_state_machine.png Graphic file (type png)
+<use artifacts/fig04_degradation_state_machine.png>
+Package pdftex.def Info: artifacts/fig04_degradation_state_machine.png  used on
+ input line 403.
+(pdftex.def)             Requested size: 430.31812pt x 213.40796pt.
+
+Overfull \hbox (3.46779pt too wide) in paragraph at lines 427--432
+\T1/lmr/m/n/12 Laplace smooth-ing); KL-divergence alert when $\OML/lmm/m/it/12 
+> $\T1/lmr/m/n/12 0.15. \T1/lmtt/m/n/12 AdaptivePrecisionBudget\T1/lmr/m/n/12 :
+ tight-
+ []
+
+
+Overfull \hbox (299.58331pt too wide) in paragraph at lines 436--442
+\T1/lmr/m/n/12 A 2-layer MLP (in-put_dim=5, hid-den_dim=32) maps 5 intra-SCC fl
+ow fea-tures $\OT1/lmr/m/n/12 [[]\OML/lmm/m/it/12 ;  [];  [];  [];  []\OT1/lmr/
+m/n/12 ]$
+ []
+
+[11
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.442 
+       <./artifacts/fig04_degradation_state_machine.png>]
+Overfull \hbox (39.74463pt too wide) in paragraph at lines 444--444
+|[]\T1/lmr/bx/n/12 7.6 Ar-chi-tec-ture Hard-en-ing: GNN Topol-ogy Em-bed-ding (
+\T1/lmtt/b/n/12 models/adaptive_fusion.py
+ []
+
+
+Overfull \hbox (50.85864pt too wide) in paragraph at lines 456--456
+|[]\T1/lmr/bx/n/12 7.7 Ar-chi-tec-ture Hard-en-ing: Deep-Topol-o-gy-At-ten-tion
+-Gate (\T1/lmtt/b/n/12 models/adaptive_fusion.py
+ []
+
+
+Overfull \hbox (108.47906pt too wide) in paragraph at lines 465--465
+|[]\T1/lmr/bx/n/12 7.8 Ar-chi-tec-ture Hard-en-ing: On-line Pre-ci-sion Re-cal-
+i-bra-tion (\T1/lmtt/b/n/12 models/degradation_controller.py\T1/lmr/bx/n/12 )| 
+
+ []
+
+
+Overfull \hbox (81.83893pt too wide) in paragraph at lines 467--470
+\T1/lmtt/m/n/12 OnlinePrecisionMonitor\T1/lmr/m/n/12 : rolling win-dow (win-dow
+_size=500, min_samples=200); \T1/lmtt/m/n/12 ingest_feedback()
+ []
+
+
+Overfull \hbox (2.0855pt too wide) in paragraph at lines 467--470
+\T1/lmr/m/n/12 re-jects out-of-order times-tamps; \T1/lmtt/m/n/12 estimate_prec
+ision() \T1/lmr/m/n/12 re-turns P@50 from top-50 scored
+ []
+
+
+Overfull \hbox (1.17001pt too wide) in paragraph at lines 489--491
+[]\T1/lmtt/m/n/12 release_degraded_resources(disabled_components)\T1/lmr/m/n/12
+ : frees com-po-nent mem-ory on
+ []
+
+
+Overfull \hbox (6.45634pt too wide) in paragraph at lines 493--495
+[]\T1/lmtt/m/n/12 utilization_report()\T1/lmr/m/n/12 : gen-er-ates \T1/lmtt/m/n
+/12 ResourceUtilizationSnapshot \T1/lmr/m/n/12 records with mem-
+ []
+
+[12]
+<artifacts/fig05_data_flow.png, id=276, 932.283pt x 570.933pt>
+File: artifacts/fig05_data_flow.png Graphic file (type png)
+<use artifacts/fig05_data_flow.png>
+Package pdftex.def Info: artifacts/fig05_data_flow.png  used on input line 501.
+
+(pdftex.def)             Requested size: 443.9066pt x 271.85808pt.
+<artifacts/fig09_conceptual_innovations.png, id=277, 854.2314pt x 451.4466pt>
+File: artifacts/fig09_conceptual_innovations.png Graphic file (type png)
+<use artifacts/fig09_conceptual_innovations.png>
+Package pdftex.def Info: artifacts/fig09_conceptual_innovations.png  used on in
+put line 510.
+(pdftex.def)             Requested size: 362.37569pt x 191.50749pt.
+ [13
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.526 \begin{tabular}
+                     {lllll}
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.526 \begin{tabular}
+                     {lllll} <./artifacts/fig05_data_flow.png> <./artifacts/fig
+09_conceptual_innovations.png>]
+<artifacts/fig06_ablation_study.png, id=287, 718.8456pt x 426.393pt>
+File: artifacts/fig06_ablation_study.png Graphic file (type png)
+<use artifacts/fig06_ablation_study.png>
+Package pdftex.def Info: artifacts/fig06_ablation_study.png  used on input line
+ 542.
+(pdftex.def)             Requested size: 398.61395pt x 236.4427pt.
+
+Overfull \hbox (28.15184pt too wide) in paragraph at lines 549--559
+[] 
+ []
+
+<artifacts/fig08_precision_routing_table.png, id=288, 714.0276pt x 354.123pt>
+File: artifacts/fig08_precision_routing_table.png Graphic file (type png)
+<use artifacts/fig08_precision_routing_table.png>
+Package pdftex.def Info: artifacts/fig08_precision_routing_table.png  used on i
+nput line 564.
+(pdftex.def)             Requested size: 385.02547pt x 190.95879pt.
+[14
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.568 
+       <./artifacts/fig06_ablation_study.png>]
+<artifacts/fig10_property_test_coverage.png, id=295, 932.283pt x 570.933pt>
+File: artifacts/fig10_property_test_coverage.png Graphic file (type png)
+<use artifacts/fig10_property_test_coverage.png>
+Package pdftex.def Info: artifacts/fig10_property_test_coverage.png  used on in
+put line 573.
+(pdftex.def)             Requested size: 443.9066pt x 271.85808pt.
+
+Underfull \hbox (badness 3158) in paragraph at lines 588--588
+[]|\T1/lmtt/m/n/12 use_learnable_penalty=False \T1/lmr/m/n/12 re-pro-duces stat
+ic
+ []
+
+
+Overfull \hbox (6.38354pt too wide) in paragraph at lines 590--590
+[]|\T1/lmr/m/n/12 Req. 2.6,3.4,3.5| 
+ []
+
+
+Overfull \hbox (6.38354pt too wide) in paragraph at lines 591--591
+[]|\T1/lmr/m/n/12 Req. 3.1,3.3,3.7| 
+ []
+
+
+Overfull \hbox (6.38354pt too wide) in paragraph at lines 592--592
+[]|\T1/lmr/m/n/12 Req. 4.1,4.3,4.5| 
+ []
+
+
+Overfull \hbox (6.38354pt too wide) in paragraph at lines 594--594
+[]|\T1/lmr/m/n/12 Req. 5.2,5.3,5.4| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 595--595
+[]|\T1/lmr/m/n/12 AH-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 596--596
+[]|\T1/lmr/m/n/12 AH-
+ []
+
+
+Underfull \hbox (badness 4416) in paragraph at lines 596--596
+[]|\T1/lmr/m/n/12 Budget: 0.7$\OMS/lmsy/m/n/12 ^^B$\T1/lmr/m/n/12 online+0.3$\O
+MS/lmsy/m/n/12 ^^B$\T1/lmr/m/n/12 shadow; tighten/relax
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
+[]|\T1/lmr/m/n/12 AH-
+ []
+
+[15
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.601 \subsection{8.7 Leakage Verification}
+                                           
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.601 \subsection{8.7 Leakage Verification}
+                                            <./artifacts/fig08_precision_routin
+g_table.png> <./artifacts/fig10_property_test_coverage.png>]
+Overfull \hbox (0.91417pt too wide) in paragraph at lines 623--625
+[]\T1/lmr/m/n/12 (New) \T1/lmtt/m/n/12 LearnableSCCPenalty \T1/lmr/m/n/12 MLP: 
+train-able re-place-ment for the static 3-archetype
+ []
+
+[16]
+Overfull \hbox (20.21606pt too wide) in paragraph at lines 654--656
+[]\T1/lmtt/m/n/12 AdaptivePrecisionBudget\T1/lmr/m/n/12 : self-calibrating min-
+i-mum P@K thresh-old; tight-ens/relaxes
+ []
+
+
+Overfull \hbox (9.23328pt too wide) in paragraph at lines 656--658
+[]\T1/lmr/m/n/12 Health-monitoring state ma-chine: 2-cycle DE-GRADED de-tec-tio
+n, 3-cycle HEALTHY
+ []
+
+
+Overfull \hbox (28.46524pt too wide) in paragraph at lines 676--676
+|[]\T1/lmr/bx/n/12 Claim 5 --- Ÿ101 System-Level Re-source Man-age-ment An-chor
+-ing (\T1/lmtt/b/n/12 ResourceManager\T1/lmr/bx/n/12 )| 
+ []
+
+[17]
+Overfull \hbox (3.09192pt too wide) in paragraph at lines 682--684
+[]\T1/lmtt/m/n/12 release_degraded_resources(disabled)\T1/lmr/m/n/12 : frees co
+m-po-nent mem-ory dur-ing degra-
+ []
+
+
+Overfull \hbox (10.96002pt too wide) in paragraph at lines 686--689
+[]\T1/lmtt/m/n/12 utilization_report()\T1/lmr/m/n/12 : gen-er-ates per-event \T
+1/lmtt/m/n/12 ResourceUtilizationSnapshot \T1/lmr/m/n/12 (mem-
+ []
+
+
+Overfull \hbox (5.30699pt too wide) in paragraph at lines 702--702
+[]|\T1/lmr/m/n/12 Stage| 
+ []
+
+
+Overfull \hbox (22.83125pt too wide) in paragraph at lines 704--704
+[]|\T1/lmr/m/n/12 Research| 
+ []
+
+
+Overfull \hbox (22.83125pt too wide) in paragraph at lines 705--705
+[]|\T1/lmr/m/n/12 Research| 
+ []
+
+
+Overfull \hbox (22.83125pt too wide) in paragraph at lines 706--706
+[]|\T1/lmr/m/n/12 Research| 
+ []
+
+
+Overfull \hbox (0.90604pt too wide) in paragraph at lines 709--709
+[]|\T1/lmr/bx/n/12 Dev| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 709--709
+[]|\T1/lmr/bx/n/12 TRL
+ []
+
+
+Underfull \hbox (badness 2591) in paragraph at lines 709--710
+\T1/lmr/m/n/12 u-lated fail-ures; Ar-chi-tec-ture Hard-en-ing layer op-er-a-tio
+nal with
+ []
+
+
+Overfull \hbox (12.97577pt too wide) in paragraph at lines 710--710
+[]|\T1/lmr/m/n/12 Deploy| 
+ []
+
+
+Overfull \hbox (12.97577pt too wide) in paragraph at lines 711--711
+[]|\T1/lmr/m/n/12 Deploy| 
+ []
+
+
+Overfull \hbox (12.97577pt too wide) in paragraph at lines 712--712
+[]|\T1/lmr/m/n/12 Deploy| 
+ []
+
+
+Overfull \hbox (13.22186pt too wide) in paragraph at lines 700--715
+[][] 
+ []
+
+[18] [19] (IDF_B_Invention_Disclosure.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package rerunfilecheck Info: File `IDF_B_Invention_Disclosure.out' has not chan
+ged.
+(rerunfilecheck)             Checksum: DFF82929902622EDA308FC0735FA5FE0;13372.
+ ) 
+Here is how much of TeX's memory you used:
+ 14335 strings out of 467871
+ 220114 string characters out of 5418376
+ 861324 words of memory out of 5000000
+ 42872 multiletter control sequences out of 15000+600000
+ 680267 words of font info for 76 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,12n,79p,1217b,1099s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
+b><C:/Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pf
+b><C:/Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb
+><C:/Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb>
+<C:/Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><
+C:/Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:
+/Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:
+/Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:
+/Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/
+Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/
+Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/
+Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/
+Users/abhis/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/m
+sam10.pfb>
+Output written on IDF_B_Invention_Disclosure.pdf (19 pages, 1703175 bytes).
+PDF statistics:
+ 445 PDF objects out of 1000 (max. 8388607)
+ 133 named destinations out of 1000 (max. 500000)
+ 363 words of extra memory for PDF output out of 10000 (max. 10000000)
+
