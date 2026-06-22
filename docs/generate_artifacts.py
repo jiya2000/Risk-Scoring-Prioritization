@@ -191,53 +191,92 @@ def fig02():
 # FIG 03 — TopologyAttentionGate Neural Architecture
 # ─────────────────────────────────────────────────────────────────────
 def fig03():
-    fig, ax = plt.subplots(figsize=(13, 7))
-    ax.set_xlim(0,13); ax.set_ylim(0,7); ax.axis('off')
+    fig, ax = plt.subplots(figsize=(14, 7))
+    ax.set_xlim(0, 14); ax.set_ylim(0, 7); ax.axis('off')
     ax.set_title("Fig 3 — TopologyAttentionGate Neural Architecture\n(Multiplicative Gating on Ensemble Weight Dimension)",
                  fontsize=12, fontweight='bold')
 
-    def box(x,y,w,h,text,col):
-        r = FancyBboxPatch((x,y),w,h, boxstyle="round,pad=0.12", facecolor=col, edgecolor='#333', lw=1.3)
+    def box(x, y, w, h, text, col):
+        r = FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.12",
+                           facecolor=col, edgecolor='#333', lw=1.3)
         ax.add_patch(r)
-        ax.text(x+w/2, y+h/2, text, ha='center', va='center', fontsize=8.5, fontweight='bold', multialignment='center')
+        ax.text(x + w/2, y + h/2, text, ha='center', va='center',
+                fontsize=8.5, fontweight='bold', multialignment='center')
 
-    def arr(x1,y1,x2,y2, lbl='', color='#333'):
-        ax.annotate('', xy=(x2,y2), xytext=(x1,y1), arrowprops=dict(arrowstyle='->', color=color, lw=1.5))
-        if lbl: ax.text((x1+x2)/2+0.05,(y1+y2)/2+0.05, lbl, fontsize=7.5, color='#555')
+    def arr(x1, y1, x2, y2, lbl='', color='#333'):
+        ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
+                    arrowprops=dict(arrowstyle='->', color=color, lw=1.5,
+                                    shrinkA=2, shrinkB=2))
+        if lbl:
+            ax.text((x1 + x2)/2 + 0.05, (y1 + y2)/2 + 0.08, lbl,
+                    fontsize=7.5, color='#555')
 
-    # Input
-    box(0.2,2.8,1.5,1.4,"Input\n5-dim\nTopology\nVector",'#AED6F1')
-    # Gate path
-    box(2.2,4.2,2.2,0.9,"Gate Layer\nLinear(5→5)\n+ Sigmoid",'#F9E79F')
-    box(4.8,4.2,2.0,0.9,"Gate Activity\nmean(gate)\n∈ (0,1)",'#F9E79F')
-    box(7.2,4.2,2.2,0.9,"Gate Amplifier\n1.0 + 2.0×activity\n∈ [1.0, 3.0]",'#F0B27A')
-    # Base path
-    box(2.2,1.8,2.2,1.2,"Base Allocator\nLinear(5→32)\nReLU\nLinear(32→3)",'#A9DFBF')
-    box(4.8,1.8,2.0,1.2,"Softmax\nBase Weights\n(w_ml, w_graph,\nw_rules)",'#A9DFBF')
-    # Multiply
-    ax.text(7.7, 2.8, "×", ha='center', va='center', fontsize=22, color='#c0392b', fontweight='bold')
-    ax.annotate('', xy=(7.5,3.05), xytext=(6.8,2.4), arrowprops=dict(arrowstyle='->', color='#c0392b', lw=1.5))
-    ax.annotate('', xy=(7.5,3.3), xytext=(7.5,4.2), arrowprops=dict(arrowstyle='->', color='#e67e22', lw=1.5))
-    ax.text(8.5,3.9,"Amplify\nw_graph only", fontsize=8, color='#c0392b', style='italic')
-    # Clamp+Norm
-    box(9.2,2.2,2.0,1.1,"Clamp [0.05,0.90]\n+ Normalize\n(3 iterations)",'#D7BDE2')
-    # Output
-    box(11.5,2.2,1.3,1.1,"Output\n(w_ml,\nw_graph,\nw_rules)",'#ABEBC6')
+    # ── Boxes ────────────────────────────────────────────────────────
+    # Input box: bottom-left (0.3, 2.6), w=1.5, h=1.4
+    # center: (1.05, 3.3), right edge: x=1.8
+    box(0.3, 2.6, 1.5, 1.4, "Input\n5-dim\nTopology\nVector", '#AED6F1')
 
-    arr(1.7,3.5, 2.2,4.65)
-    arr(1.7,3.5, 2.2,2.4)
-    arr(4.4,4.65, 4.8,4.65)
-    arr(6.8,4.65, 7.2,4.65)
-    arr(4.4,2.4, 4.8,2.4)
-    arr(6.8,2.4, 7.5,2.8)
-    arr(8.2,2.8, 9.2,2.75)
-    arr(11.2,2.75, 11.5,2.75)
+    # Gate path (top row, y=4.4)
+    # Gate Layer: (2.4, 4.4), w=2.2, h=0.9 → center (3.5, 4.85), left=2.4, right=4.6
+    box(2.4, 4.4, 2.2, 0.9, "Gate Layer\nLinear(5→5)\n+ Sigmoid", '#F9E79F')
+    # Gate Activity: (5.1, 4.4), w=2.0, h=0.9 → center (6.1, 4.85), left=5.1, right=7.1
+    box(5.1, 4.4, 2.0, 0.9, "Gate Activity\nmean(gate)\n∈ (0,1)", '#F9E79F')
+    # Gate Amplifier: (7.6, 4.4), w=2.2, h=0.9 → center (8.7, 4.85), left=7.6, right=9.8
+    box(7.6, 4.4, 2.2, 0.9, "Gate Amplifier\n1.0 + 2.0×activity\n∈ [1.0, 3.0]", '#F0B27A')
 
-    ax.text(4.0, 0.5, "KEY: Gate operates on the WEIGHT DIMENSION (not feature space) — distinct from standard additive attention",
-            ha='center', fontsize=9, color='#7D3C98', style='italic', fontweight='bold')
+    # Base path (bottom row, y=1.6)
+    # Base Allocator: (2.4, 1.6), w=2.2, h=1.2 → center (3.5, 2.2), left=2.4, right=4.6
+    box(2.4, 1.6, 2.2, 1.2, "Base Allocator\nLinear(5→32)\nReLU\nLinear(32→3)", '#A9DFBF')
+    # Softmax: (5.1, 1.6), w=2.0, h=1.2 → center (6.1, 2.2), left=5.1, right=7.1
+    box(5.1, 1.6, 2.0, 1.2, "Softmax\nBase Weights\n(w_ml, w_graph,\nw_rules)", '#A9DFBF')
+
+    # Multiply symbol at (8.3, 3.3)
+    ax.text(8.3, 3.3, "×", ha='center', va='center', fontsize=24,
+            color='#c0392b', fontweight='bold')
+
+    # Clamp+Norm: (9.6, 2.7), w=2.2, h=1.1 → center (10.7, 3.25), left=9.6, right=11.8
+    box(9.6, 2.7, 2.2, 1.1, "Clamp [0.05,0.90]\n+ Normalize\n(3 iterations)", '#D7BDE2')
+    # Output: (12.1, 2.7), w=1.5, h=1.1 → center (12.85, 3.25), left=12.1, right=13.6
+    box(12.1, 2.7, 1.5, 1.1, "Output\n(w_ml,\nw_graph,\nw_rules)", '#ABEBC6')
+
+    # ── Arrows ───────────────────────────────────────────────────────
+    # Input right edge → Gate Layer left edge (upper path)
+    arr(1.8, 3.6, 2.4, 4.85, color='#333')
+    # Input right edge → Base Allocator left edge (lower path)
+    arr(1.8, 3.0, 2.4, 2.2, color='#333')
+
+    # Gate Layer right → Gate Activity left (same row)
+    arr(4.6, 4.85, 5.1, 4.85, color='#333')
+    # Gate Activity right → Gate Amplifier left (same row)
+    arr(7.1, 4.85, 7.6, 4.85, color='#333')
+
+    # Base Allocator right → Softmax left (same row)
+    arr(4.6, 2.2, 5.1, 2.2, color='#333')
+
+    # Softmax right edge → multiply symbol (bottom-left approach)
+    arr(7.1, 2.2, 8.1, 3.0, color='#c0392b')
+    # Gate Amplifier bottom → multiply symbol (top approach)
+    arr(8.7, 4.4, 8.4, 3.6, color='#e67e22')
+
+    # Label for multiply
+    ax.text(9.3, 4.0, "Amplify\nw_graph only", fontsize=8,
+            color='#c0392b', style='italic')
+
+    # Multiply symbol → Clamp left edge
+    arr(8.6, 3.3, 9.6, 3.25, color='#333')
+    # Clamp right edge → Output left edge
+    arr(11.8, 3.25, 12.1, 3.25, color='#333')
+
+    # ── Key text ─────────────────────────────────────────────────────
+    ax.text(7.0, 0.5,
+            "KEY: Gate operates on the WEIGHT DIMENSION (not feature space) "
+            "— distinct from standard additive attention",
+            ha='center', fontsize=9, color='#7D3C98', style='italic',
+            fontweight='bold')
 
     fig.tight_layout()
-    fig.savefig(os.path.join(OUT, 'fig03_topology_attention_gate.png'), dpi=DPI, bbox_inches='tight')
+    fig.savefig(os.path.join(OUT, 'fig03_topology_attention_gate.png'),
+                dpi=DPI, bbox_inches='tight')
     plt.close(fig)
     print("fig03 done")
 
@@ -298,69 +337,94 @@ def fig04():
 # FIG 05 — Data Flow Diagram
 # ─────────────────────────────────────────────────────────────────────
 def fig05():
-    fig, ax = plt.subplots(figsize=(13, 8))
-    ax.set_xlim(0,13); ax.set_ylim(0,8); ax.axis('off')
-    ax.set_title("Fig 5 — End-to-End Data Flow Diagram", fontsize=13, fontweight='bold')
+    fig, ax = plt.subplots(figsize=(14, 9))
+    ax.set_xlim(0, 14); ax.set_ylim(0, 9); ax.axis('off')
+    ax.set_title("Fig 5 — End-to-End Data Flow Diagram", fontsize=13, fontweight='bold', pad=10)
 
-    def box(x,y,w,h,text,col,fs=8.5):
-        r = FancyBboxPatch((x,y),w,h, boxstyle="round,pad=0.12", facecolor=col, edgecolor='#444', lw=1.3)
+    def box(x, y, w, h, text, col, fs=8.5):
+        """Draw box at (x,y) as bottom-left corner."""
+        r = FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.12",
+                           facecolor=col, edgecolor='#444', lw=1.3)
         ax.add_patch(r)
-        ax.text(x+w/2,y+h/2,text, ha='center', va='center', fontsize=fs, fontweight='bold', multialignment='center')
+        ax.text(x + w/2, y + h/2, text, ha='center', va='center',
+                fontsize=fs, fontweight='bold', multialignment='center')
+        # Return center coords and dimensions for arrow convenience
+        return (x, y, w, h)
 
-    def arr(x1,y1,x2,y2,lbl=''):
-        ax.annotate('', xy=(x2,y2), xytext=(x1,y1), arrowprops=dict(arrowstyle='->', color='#333', lw=1.4))
-        if lbl: ax.text((x1+x2)/2+0.05,(y1+y2)/2+0.1,lbl, fontsize=7, color='#666', style='italic')
+    def arr(x1, y1, x2, y2, lbl='', offset=(0.05, 0.12)):
+        """Draw arrow from (x1,y1) to (x2,y2) with optional label."""
+        ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
+                    arrowprops=dict(arrowstyle='->', color='#333', lw=1.6,
+                                    shrinkA=2, shrinkB=2))
+        if lbl:
+            ax.text((x1 + x2)/2 + offset[0], (y1 + y2)/2 + offset[1],
+                    lbl, fontsize=7.5, color='#555', style='italic')
 
-    # CSVs
-    box(0.2,6.8,2.2,0.8,"transactions.csv\n(edges+amounts)",'#AED6F1',8)
-    box(0.2,5.7,2.2,0.8,"accounts.csv\n(KYC data)",'#AED6F1',8)
-    box(0.2,4.6,2.2,0.8,"graph_edges.csv\n(graph structure)",'#AED6F1',8)
+    # ── Row 1 (top): CSV inputs ──────────────────────────────────────
+    # y=7.6..8.4 for transactions, y=6.4..7.2 accounts, y=5.2..6.0 graph_edges
+    csv1 = box(0.3, 7.5, 2.2, 0.9, "transactions.csv\n(edges+amounts)", '#AED6F1', 8)
+    csv2 = box(0.3, 6.3, 2.2, 0.9, "accounts.csv\n(KYC data)", '#AED6F1', 8)
+    csv3 = box(0.3, 5.1, 2.2, 0.9, "graph_edges.csv\n(graph structure)", '#AED6F1', 8)
 
-    # Feature Eng
-    box(3.0,6.3,2.5,1.0,"Feature Engineering\n40+ features\n(temporal, KYC, graph)",'#A9DFBF')
-    arr(2.4,7.2, 3.0,6.8)
-    arr(2.4,6.1, 3.0,6.8)
+    # ── Row 2: Feature Engineering + LightGBM ────────────────────────
+    feat = box(3.2, 7.0, 2.8, 1.1, "Feature Engineering\n40+ features\n(temporal, KYC, graph)", '#A9DFBF')
+    lgbm = box(6.8, 7.0, 2.4, 1.1, "LightGBM\nClassifier\n→ S_ml ∈ [0,1]", '#A9DFBF')
 
-    # LightGBM
-    box(6.2,6.3,2.2,1.0,"LightGBM\nClassifier\n→ S_ml ∈ [0,1]",'#A9DFBF')
-    arr(5.5,6.8, 6.2,6.8,'features')
+    # Arrows: CSVs → Feature Engineering (right edge of CSV → left edge of Feat)
+    arr(2.5, 7.95, 3.2, 7.55)  # transactions → feat
+    arr(2.5, 6.75, 3.2, 7.35)  # accounts → feat
 
-    # TD-PageRank
-    box(3.0,4.2,2.8,1.2,"TD-PageRank Engine\nw=amt×exp(−λ×age)\n→ S_graph ∈ [0,1]",'#F9E79F')
-    arr(2.4,4.9, 3.0,4.85,'edges')
+    # Feature Eng → LightGBM (right edge → left edge)
+    arr(6.0, 7.55, 6.8, 7.55, 'features')
 
-    # Ego-network
-    box(6.2,4.2,2.5,1.2,"Ego-Network Extractor\n2-hop subgraph\n→ TopologyVector (6D)",'#F9E79F')
-    arr(2.4,4.9, 6.2,4.85,'graph')
+    # ── Row 3: TD-PageRank + Ego-Network + TopologyAttentionGate ─────
+    tdpr = box(3.2, 5.0, 3.0, 1.2, "TD-PageRank Engine\nw=amt×exp(−λ×age)\n→ S_graph ∈ [0,1]", '#F9E79F')
+    ego  = box(6.8, 5.0, 2.8, 1.2, "Ego-Network Extractor\n2-hop subgraph\n→ TopologyVector (6D)", '#F9E79F')
+    gate = box(10.2, 5.0, 3.5, 1.2, "TopologyAttentionGate\n→ (w_ml, w_graph, w_rules)\neach ∈ [0.05,0.90], sum=1", '#F0B27A')
 
-    # TopologyAttentionGate
-    box(9.2,4.2,3.5,1.2,"TopologyAttentionGate\n→ (w_ml, w_graph, w_rules)\neach ∈ [0.05,0.90], sum=1",'#F0B27A')
-    arr(8.7,4.85, 9.2,4.85,'topology\nvector')
-    arr(8.4,6.8, 9.2,5.35,'S_ml')
+    # graph_edges → TD-PageRank (right edge of csv3 → left edge of tdpr)
+    arr(2.5, 5.55, 3.2, 5.6, 'edges')
 
-    # Symbolic Rules
-    box(3.0,2.5,2.8,1.0,"Symbolic Rule Engine\n10 FATF Typologies\n→ S_rules ∈ [0,1]",'#D7BDE2')
+    # TD-PageRank → Ego-Network (right edge → left edge, same row)
+    arr(6.2, 5.6, 6.8, 5.6)
 
-    # Adaptive Fusion
-    box(6.2,2.5,2.5,1.0,"Adaptive Fusion\nfused = Σ w_i × S_i\n→ fused_score",'#F0B27A')
-    arr(5.8,4.85, 6.45,3.5,'S_graph')
-    arr(10.95,4.85, 7.5,3.5,'weights')
-    arr(5.8,2.95, 6.2,2.95,'S_rules')
+    # Ego-Network → TopologyAttentionGate (right → left)
+    arr(9.6, 5.6, 10.2, 5.6, 'topology\nvector')
 
-    # Degradation Controller
-    box(3.0,0.8,5.7,1.2,"Degradation Controller\nRoutes to best execution path P@50 ≥ 0.60\nOnlinePrecisionMonitor + DriftDetector",'#F1948A')
-    arr(7.45,2.5, 7.45,2.0,'fused scores')
+    # LightGBM → TopologyAttentionGate (S_ml: bottom of lgbm → top of gate)
+    arr(9.0, 7.0, 11.95, 6.2, 'S_ml')
 
-    # Account Risk
-    box(9.2,2.5,3.5,1.0,"Account Risk Aggregation\ntime-decay + burst + top-5\n→ Priority Queue",'#D5DBDB')
-    arr(8.7,2.95, 9.2,2.95)
+    # ── Row 4: Symbolic Rules + Adaptive Fusion + Account Risk ───────
+    rules = box(3.2, 3.0, 2.8, 1.0, "Symbolic Rule Engine\n10 FATF Typologies\n→ S_rules ∈ [0,1]", '#D7BDE2')
+    fuse  = box(6.8, 3.0, 2.8, 1.0, "Adaptive Fusion\nfused = Σ w_i × S_i\n→ fused_score", '#F0B27A')
+    acct  = box(10.2, 3.0, 3.5, 1.0, "Account Risk Aggregation\ntime-decay + burst + top-5\n→ Priority Queue", '#D5DBDB')
 
-    # Dashboard
-    box(9.2,0.8,3.5,1.0,"Streamlit Dashboard\nAnalyst Priority Queue\n+ Case Investigation",'#FAD7A0')
-    arr(10.95,2.5, 10.95,1.8)
-    arr(8.7,1.2, 9.2,1.2,'STR\nNLP')
+    # Symbolic Rules → Adaptive Fusion (right edge → left edge)
+    arr(6.0, 3.5, 6.8, 3.5, 'S_rules')
 
-    fig.tight_layout()
+    # TD-PageRank → Adaptive Fusion (S_graph: bottom of tdpr → top of fuse)
+    arr(5.6, 5.0, 7.6, 4.0, 'S_graph')
+
+    # TopologyAttentionGate → Adaptive Fusion (weights: bottom of gate → top of fuse)
+    arr(11.95, 5.0, 8.8, 4.0, 'weights')
+
+    # Adaptive Fusion → Account Risk (right edge → left edge)
+    arr(9.6, 3.5, 10.2, 3.5)
+
+    # ── Row 5 (bottom): Degradation Controller + Dashboard ───────────
+    ctrl = box(3.2, 1.0, 5.8, 1.2, "Degradation Controller\nRoutes to best execution path P@50 ≥ 0.60\nOnlinePrecisionMonitor + DriftDetector", '#F1948A')
+    dash = box(10.2, 1.0, 3.5, 1.2, "Streamlit Dashboard\nAnalyst Priority Queue\n+ Case Investigation", '#FAD7A0')
+
+    # Adaptive Fusion → Degradation Controller (bottom of fuse → top of ctrl)
+    arr(8.2, 3.0, 6.1, 2.2, 'fused scores')
+
+    # Account Risk → Dashboard (bottom of acct → top of dash)
+    arr(11.95, 3.0, 11.95, 2.2)
+
+    # Degradation Controller → Dashboard (right edge → left edge, same row)
+    arr(9.0, 1.6, 10.2, 1.6, 'STR\nNLP')
+
+    fig.tight_layout(pad=0.5)
     fig.savefig(os.path.join(OUT, 'fig05_data_flow.png'), dpi=DPI, bbox_inches='tight')
     plt.close(fig)
     print("fig05 done")
